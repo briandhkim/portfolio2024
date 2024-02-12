@@ -28,7 +28,7 @@ const About = () => {
     function bsmLink() {
         return (
             <a
-                className="link link-primary"
+                className="link link-primary font-medium"
                 target="_blank"
                 href="https://www.besmartee.com"
                 rel="noreferrer"
@@ -40,25 +40,34 @@ const About = () => {
     }
 
     return (
-        <section className="bg-base-400">
+        <section className="bg-base-300" id="about">
             <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
-                <aside className="relative block h-16 lg:order-last lg:col-span-4 lg:h-full xl:col-span-4">
+                <aside className="relative block h-16 lg:order-last lg:col-span-3 lg:h-full xl:col-span-4">
                     <img
                         alt=""
                         src={background}
                         className="absolute inset-0 h-full w-full object-cover"
                     />
                 </aside>
-                <div className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-8 lg:px-16 lg:py-12 xl:col-span-8">
+                <div className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-9 lg:px-16 lg:py-12 xl:col-span-8">
                     <div className="max-w-xl lg:max-w-3xl">
                         <div className="">
-                            <div className=" px-4 sm:px-0">
+                            {/* <div className=" px-4 sm:px-0">
                                 <h3 className="text-base font-semibold leading-7 text-gray-900">
                                     About me
                                 </h3>
                                 <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
                                     Personal details and application.
                                 </p>
+                            </div> */}
+                            <div className=" pb-6 pt-4 sm:pb-20 ">
+                                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                                    <div className="mx-auto max-w-2xl lg:mx-0">
+                                        <h2 className=" text-3xl font-semibold tracking-tight sm:text-5xl">
+                                            About
+                                        </h2>
+                                    </div>
+                                </div>
                             </div>
                             <div className="mt-6 border-t border-gray-100">
                                 <dl className="divide-y divide-gray-100">
