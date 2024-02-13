@@ -1,5 +1,7 @@
 import { PaperClipIcon, SunIcon } from '@heroicons/react/24/solid';
 import background from '../assets/images/background.jpg';
+import StackedWrapper from './common/StackedWrapper';
+import Navbar from './Navbar';
 
 const About = () => {
     const aboutContent = {
@@ -40,105 +42,112 @@ const About = () => {
     }
 
     return (
-        <section className="bg-base-300" id="about">
-            <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
-                <aside className="relative block h-16 lg:order-last lg:col-span-3 lg:h-full xl:col-span-4">
-                    <img
-                        alt=""
-                        src={background}
-                        className="absolute inset-0 h-full w-full object-cover"
-                    />
-                </aside>
-                <div className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-9 lg:px-16 lg:py-12 xl:col-span-8">
-                    <div className="max-w-xl lg:max-w-3xl">
-                        <div className="">
-                            {/* <div className=" px-4 sm:px-0">
-                                <h3 className="text-base font-semibold leading-7 text-gray-900">
-                                    About me
-                                </h3>
-                                <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
-                                    Personal details and application.
-                                </p>
-                            </div> */}
-                            <div className=" pb-6 pt-4 sm:pb-20 ">
-                                <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                                    <div className="mx-auto max-w-2xl lg:mx-0">
-                                        <h2 className=" text-3xl font-semibold tracking-tight sm:text-5xl">
-                                            About
-                                        </h2>
+        <StackedWrapper
+            sectionTitle="About"
+            id="About"
+            headerBg="bg-base-200"
+            bodyBg="bg-base-300"
+        >
+            <section className="bg-base-100 rounded-2xl">
+                <div className="lg:grid lg:grid-cols-12">
+                    <aside className="relative block h-16 lg:order-last lg:col-span-3 lg:h-full xl:col-span-4">
+                        <img
+                            alt=""
+                            src={background}
+                            className="absolute inset-0 h-full w-full object-cover"
+                        />
+                    </aside>
+                    <div className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-9 lg:px-16 lg:py-12 xl:col-span-8">
+                        <div className="max-w-xl lg:max-w-3xl">
+                            <div className="">
+                                {/* <div className=" px-4 sm:px-0">
+                                    <h3 className="text-base font-semibold leading-7 text-gray-900">
+                                        About me
+                                    </h3>
+                                    <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
+                                        Personal details and application.
+                                    </p>
+                                </div> */}
+                                {/* <div className=" pb-6 pt-4 sm:pb-20 ">
+                                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                                        <div className="mx-auto max-w-2xl lg:mx-0">
+                                            <h2 className=" text-3xl font-semibold tracking-tight sm:text-5xl">
+                                                About
+                                            </h2>
+                                        </div>
                                     </div>
+                                </div> */}
+                                <div className="mt-6 border-t border-gray-100">
+                                    <dl className="divide-y divide-gray-100">
+                                        {aboutItems}
+                                        <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                            <dt className="text-sm font-medium leading-6 text-gray-900">
+                                                Attachments
+                                            </dt>
+                                            <dd className="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                <ul
+                                                    role="list"
+                                                    className="divide-y divide-gray-100 rounded-md border border-gray-200"
+                                                >
+                                                    <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                                                        <div className="flex w-0 flex-1 items-center">
+                                                            <PaperClipIcon
+                                                                className="h-5 w-5 flex-shrink-0 text-gray-400"
+                                                                aria-hidden="true"
+                                                            />
+                                                            <div className="ml-4 flex min-w-0 flex-1 gap-2">
+                                                                <span className="truncate font-medium">
+                                                                    resume_back_end_developer.pdf
+                                                                </span>
+                                                                <span className="flex-shrink-0 text-gray-400">
+                                                                    2.4mb
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="ml-4 flex-shrink-0">
+                                                            <a
+                                                                href="#"
+                                                                className="font-medium text-indigo-600 hover:text-indigo-500"
+                                                            >
+                                                                Download
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                    <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                                                        <div className="flex w-0 flex-1 items-center">
+                                                            <PaperClipIcon
+                                                                className="h-5 w-5 flex-shrink-0 text-gray-400"
+                                                                aria-hidden="true"
+                                                            />
+                                                            <div className="ml-4 flex min-w-0 flex-1 gap-2">
+                                                                <span className="truncate font-medium">
+                                                                    coverletter_back_end_developer.pdf
+                                                                </span>
+                                                                <span className="flex-shrink-0 text-gray-400">
+                                                                    4.5mb
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="ml-4 flex-shrink-0">
+                                                            <a
+                                                                href="#"
+                                                                className="font-medium text-indigo-600 hover:text-indigo-500"
+                                                            >
+                                                                Download
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </dd>
+                                        </div>
+                                    </dl>
                                 </div>
-                            </div>
-                            <div className="mt-6 border-t border-gray-100">
-                                <dl className="divide-y divide-gray-100">
-                                    {aboutItems}
-                                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                        <dt className="text-sm font-medium leading-6 text-gray-900">
-                                            Attachments
-                                        </dt>
-                                        <dd className="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                            <ul
-                                                role="list"
-                                                className="divide-y divide-gray-100 rounded-md border border-gray-200"
-                                            >
-                                                <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-                                                    <div className="flex w-0 flex-1 items-center">
-                                                        <PaperClipIcon
-                                                            className="h-5 w-5 flex-shrink-0 text-gray-400"
-                                                            aria-hidden="true"
-                                                        />
-                                                        <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                                                            <span className="truncate font-medium">
-                                                                resume_back_end_developer.pdf
-                                                            </span>
-                                                            <span className="flex-shrink-0 text-gray-400">
-                                                                2.4mb
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="ml-4 flex-shrink-0">
-                                                        <a
-                                                            href="#"
-                                                            className="font-medium text-indigo-600 hover:text-indigo-500"
-                                                        >
-                                                            Download
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-                                                    <div className="flex w-0 flex-1 items-center">
-                                                        <PaperClipIcon
-                                                            className="h-5 w-5 flex-shrink-0 text-gray-400"
-                                                            aria-hidden="true"
-                                                        />
-                                                        <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                                                            <span className="truncate font-medium">
-                                                                coverletter_back_end_developer.pdf
-                                                            </span>
-                                                            <span className="flex-shrink-0 text-gray-400">
-                                                                4.5mb
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="ml-4 flex-shrink-0">
-                                                        <a
-                                                            href="#"
-                                                            className="font-medium text-indigo-600 hover:text-indigo-500"
-                                                        >
-                                                            Download
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </dd>
-                                    </div>
-                                </dl>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </StackedWrapper>
     );
 };
 

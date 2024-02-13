@@ -5,6 +5,7 @@ import About from './component/About';
 import MainWrapper from './component/MainWrapper';
 import Navbar from './component/Navbar';
 import Timeline from './component/Timeline';
+import NavbarTw from './component/NavbarTw';
 
 function App() {
     const [unlocked, setUnlocked] = useState(false);
@@ -12,12 +13,13 @@ function App() {
 
     useEffect(() => {
         if (unlocked) {
-            const aboutSection = document.getElementById('about');
+            const aboutSection = document.getElementById('About');
             aboutSection.scrollIntoView({ behavior: 'smooth' });
 
             setTimeout(() => {
+                console.log(window.scrollY, aboutSection.offsetTop);
                 if (window.scrollY === aboutSection.offsetTop) {
-                    // setShowLanding(false);
+                    setShowLanding(false);
                     console.log('unlock');
                 }
             }, 800);
@@ -38,7 +40,8 @@ function App() {
             {/* {unlocked && <MainWrapper />} */}
             {unlocked && (
                 <>
-                    <Navbar />
+                    {/* <Navbar /> */}
+                    <NavbarTw />
                     <About />
                     <Timeline />
                 </>
