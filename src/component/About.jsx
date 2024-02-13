@@ -18,10 +18,10 @@ const About = () => {
             key={label}
             className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
         >
-            <dt className="text-sm font-medium leading-6 text-gray-900">
+            <dt className="text-sm font-semibold leading-6 text-base-content">
                 {label}
             </dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+            <dd className="mt-1 text-sm leading-6 text-base-content sm:col-span-2 sm:mt-0">
                 {aboutContent[label]}
             </dd>
         </div>
@@ -46,7 +46,7 @@ const About = () => {
             sectionTitle="About"
             id="About"
             headerBg="bg-base-200"
-            bodyBg="bg-base-300"
+            bodyBg="bg-gradient-to-b from-base-200 from-10% via-base-200 via-25% to-base-300 to-70%"
         >
             <section className="bg-base-100 rounded-2xl">
                 <div className="lg:grid lg:grid-cols-12">
