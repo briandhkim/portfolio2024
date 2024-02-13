@@ -1,7 +1,6 @@
 import { PaperClipIcon, SunIcon } from '@heroicons/react/24/solid';
 import background from '../assets/images/background.jpg';
 import StackedWrapper from './common/StackedWrapper';
-import Navbar from './Navbar';
 
 const About = () => {
     const aboutContent = {
@@ -77,8 +76,8 @@ const About = () => {
                                         </div>
                                     </div>
                                 </div> */}
-                                <div className="mt-6 border-t border-gray-100">
-                                    <dl className="divide-y divide-gray-100">
+                                <div className="mt-6 border-t border-base-300">
+                                    <dl className="divide-y divide-base-300">
                                         {aboutItems}
                                         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                             <dt className="text-sm font-medium leading-6 text-gray-900">

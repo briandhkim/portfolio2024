@@ -44,10 +44,10 @@ export default function NavbarTw() {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
-                                    <div className="hidden h-8 w-auto lg:block  lg:ml-4 text-xl font-semibold px-1.5 py-0.5 border border-2 border-base-content text-base-content leading-6 cursor-default">
+                                    <div className="hidden h-8 w-auto lg:block  text-xl font-semibold px-1.5 py-0.5 border border-2 border-base-content text-base-content leading-6 cursor-default">
                                         bdhk
                                     </div>
-                                    <div className="block h-8 w-auto lg:hidden  lg:ml-4 text-xl font-semibold px-1.5 py-0.5 border border-2 border-base-content text-base-content leading-6 cursor-default">
+                                    <div className="block h-8 w-auto lg:hidden  text-xl font-semibold px-1.5 py-0.5 border border-2 border-base-content text-base-content leading-6 cursor-default">
                                         bdhk
                                     </div>
                                 </div>
