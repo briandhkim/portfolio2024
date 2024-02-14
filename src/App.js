@@ -4,12 +4,13 @@ import Landing from './component/Landing';
 import About from './component/About';
 import MainWrapper from './component/MainWrapper';
 import Navbar from './component/Navbar';
-import Timeline from './component/Experience';
+import Experience from './component/Experience';
 import NavbarTw from './component/NavbarTw';
 
 function App() {
     const [unlocked, setUnlocked] = useState(false);
     const [showLanding, setShowLanding] = useState(true);
+    const [currentPage, setCurrentPage] = useState('Landing');
 
     useEffect(() => {
         if (unlocked) {
@@ -17,16 +18,14 @@ function App() {
             aboutSection.scrollIntoView({ behavior: 'smooth' });
 
             setTimeout(() => {
-                console.log(window.scrollY, aboutSection.offsetTop);
+                // console.log(window.scrollY, aboutSection.offsetTop);
                 if (window.scrollY === aboutSection.offsetTop) {
                     setShowLanding(false);
-                    console.log('unlock');
+                    // console.log('unlock');
                 }
             }, 800);
         }
-    }, [unlocked]);
 
-    useEffect(() => {
         if (!unlocked) {
             setShowLanding(true);
         }
@@ -41,9 +40,9 @@ function App() {
             {unlocked && (
                 <>
                     {/* <Navbar /> */}
-                    <NavbarTw />
-                    <About />
-                    <Timeline />
+                    <NavbarTw page={currentPage} />
+                    <About setCurrentPage={setCurrentPage} />
+                    <Experience setCurrentPage={setCurrentPage} />
                 </>
             )}
             {/* <About /> */}

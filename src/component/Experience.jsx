@@ -1,7 +1,15 @@
-import Container from './common/Container';
+import { useEffect, useRef } from 'react';
 import StackedWrapper from './common/StackedWrapper';
+import { useOnScreen } from '../hooks/useOnScreen';
 
-const Experience = () => {
+const Experience = ({ setCurrentPage }) => {
+    const sectionRef = useRef(null);
+    const isOnScreen = useOnScreen(sectionRef);
+
+    useEffect(() => {
+        if (isOnScreen) setCurrentPage('Experience');
+    }, [isOnScreen]);
+
     return (
         <StackedWrapper
             sectionTitle="Experience"
@@ -9,8 +17,9 @@ const Experience = () => {
             headerBg="bg-base-300"
             // bodyBg="bg-gradient-to-b from-base-300 from-10% via-base-300 via-25% to-base-100 to-70%"
             bodyBg="bg-base-100"
+            ref={sectionRef}
         >
-            <section className="bg-base-100 px-6 py-8">
+            <div className="bg-base-100 px-6 py-8">
                 <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                     <li>
                         <div className="timeline-middle">
@@ -161,7 +170,7 @@ const Experience = () => {
                         </div>
                     </li>
                 </ul>
-            </section>
+            </div>
         </StackedWrapper>
     );
 };

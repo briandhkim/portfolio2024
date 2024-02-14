@@ -1,18 +1,29 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ');
-}
 
-export default function Example() {
+
+export default function NavbarTw({ page }) {
     const navigation = [
         { name: 'About', href: '#', current: true },
         { name: 'Experience', href: '#', current: false },
         { name: 'Skills', href: '#', current: false },
         { name: 'Contact', href: '#', current: false },
     ];
+    const [currentPage, setCurrentPage] = useState('About');
+
+    function classNames(...classes) {
+        return classes.filter(Boolean).join(' ');
+    }
+    function navHandler(id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        setCurrentPage(id);
+    }
+
+    useEffect(() => {
+        setCurrentPage(page)
+    }, [page]);
 
     return (
         <Disclosure
@@ -44,16 +55,6 @@ export default function Example() {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
-                                    {/* <img
-                                        className="block h-8 w-auto lg:hidden"
-                                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                        alt="Your Company"
-                                    />
-                                    <img
-                                        className="hidden h-8 w-auto lg:block"
-                                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                        alt="Your Company"
-                                    /> */}
                                     <div className="hidden h-8 w-auto lg:block  text-xl font-semibold px-1.5 py-0.5 border border-2 border-base-content text-base-content leading-6 cursor-default">
                                         bdhk
                                     </div>
@@ -63,30 +64,23 @@ export default function Example() {
                                 </div>
                                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                                     {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                                    <a
-                                        href="#"
-                                        className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900"
-                                    >
-                                        Dashboard
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                                    >
-                                        Team
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                                    >
-                                        Projects
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                                    >
-                                        Calendar
-                                    </a>
+                                    {navigation.map(item => (
+                                        <button
+                                            key={item.name}
+                                            // href={item.href}
+                                            className={classNames(
+                                                item.name === currentPage
+                                                    ? 'border-indigo-500 text-gray-900'
+                                                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                                                'inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium'
+                                            )}
+                                            onClick={() =>
+                                                navHandler(item.name)
+                                            }
+                                        >
+                                            {item.name}
+                                        </button>
+                                    ))}
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -182,34 +176,24 @@ export default function Example() {
                     <Disclosure.Panel className="sm:hidden">
                         <div className="space-y-1 pb-4 pt-2">
                             {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
-                            <Disclosure.Button
-                                as="a"
-                                href="#"
-                                className="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"
-                            >
-                                Dashboard
-                            </Disclosure.Button>
-                            <Disclosure.Button
-                                as="a"
-                                href="#"
-                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-                            >
-                                Team
-                            </Disclosure.Button>
-                            <Disclosure.Button
-                                as="a"
-                                href="#"
-                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-                            >
-                                Projects
-                            </Disclosure.Button>
-                            <Disclosure.Button
-                                as="a"
-                                href="#"
-                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-                            >
-                                Calendar
-                            </Disclosure.Button>
+                            {navigation.map(item => (
+                                <Disclosure.Button
+                                    key={item.name}
+                                    as="a"
+                                    href={item.href}
+                                    className={classNames(
+                                        item.current
+                                            ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
+                                            : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700',
+                                        'block border-l-4 py-2 pl-3 pr-4 text-base font-medium'
+                                    )}
+                                    aria-current={
+                                        item.current ? 'page' : undefined
+                                    }
+                                >
+                                    {item.name}
+                                </Disclosure.Button>
+                            ))}
                         </div>
                     </Disclosure.Panel>
                 </>

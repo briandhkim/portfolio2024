@@ -1,8 +1,10 @@
 import { PaperClipIcon, SunIcon } from '@heroicons/react/24/solid';
 import background from '../assets/images/background.jpg';
 import StackedWrapper from './common/StackedWrapper';
+import { useOnScreen } from '../hooks/useOnScreen';
+import { useEffect, useRef } from 'react';
 
-const About = () => {
+const About = ({ setCurrentPage }) => {
     const aboutContent = {
         'Full name': 'Brian Kim, 동현',
         'Current position': 'Full Stack Software Engineer',
@@ -40,6 +42,13 @@ const About = () => {
         );
     }
 
+    const sectionRef = useRef(null);
+    const isOnScreen = useOnScreen(sectionRef);
+
+    useEffect(() => {
+        if (isOnScreen) setCurrentPage('About');
+    }, [isOnScreen]);
+
     return (
         <StackedWrapper
             sectionTitle="About"
@@ -47,8 +56,9 @@ const About = () => {
             headerBg="bg-base-200"
             // bodyBg="bg-gradient-to-b from-base-200 from-10% via-base-200 via-25% to-base-300 to-70%"
             bodyBg="bg-base-300"
+            ref={sectionRef}
         >
-            <section className="bg-base-100 rounded-2xl">
+            <div className="bg-base-100 rounded-2xl">
                 <div className="lg:grid lg:grid-cols-12">
                     <aside className="relative block h-16 lg:order-last lg:col-span-3 lg:h-full xl:col-span-4">
                         <img
@@ -146,7 +156,7 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </StackedWrapper>
     );
 };
