@@ -4,7 +4,7 @@ import Landing from './component/Landing';
 import About from './component/About';
 import MainWrapper from './component/MainWrapper';
 import Navbar from './component/Navbar';
-import Timeline from './component/Timeline';
+import Timeline from './component/Experience';
 import NavbarTw from './component/NavbarTw';
 
 function App() {

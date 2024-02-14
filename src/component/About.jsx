@@ -45,7 +45,8 @@ const About = () => {
             sectionTitle="About"
             id="About"
             headerBg="bg-base-200"
-            bodyBg="bg-gradient-to-b from-base-200 from-10% via-base-200 via-25% to-base-300 to-70%"
+            // bodyBg="bg-gradient-to-b from-base-200 from-10% via-base-200 via-25% to-base-300 to-70%"
+            bodyBg="bg-base-300"
         >
             <section className="bg-base-100 rounded-2xl">
                 <div className="lg:grid lg:grid-cols-12">

@@ -1,6 +1,11 @@
 import { LockClosedIcon, LockOpenIcon } from '@heroicons/react/24/outline';
+import { useEffect } from 'react';
 
 const Landing = ({ unlocked, setUnlocked }) => {
+    useEffect(() => {
+        window.location.hash = '';
+    }, []);
+
     return (
         <div className=" min-h-screen bg-base-200 flex justify-center items-center px-4 sm:px-6 lg:px-8">
             <div className="">

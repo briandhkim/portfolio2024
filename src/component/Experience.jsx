@@ -1,13 +1,14 @@
 import Container from './common/Container';
 import StackedWrapper from './common/StackedWrapper';
 
-const Timeline = () => {
+const Experience = () => {
     return (
         <StackedWrapper
-            sectionTitle="Timeline"
-            id="Timeline"
+            sectionTitle="Experience"
+            id="Experience"
             headerBg="bg-base-300"
-            bodyBg="bg-gradient-to-b from-base-300 from-10% via-base-300 via-25% to-base-100 to-70%"
+            // bodyBg="bg-gradient-to-b from-base-300 from-10% via-base-300 via-25% to-base-100 to-70%"
+            bodyBg="bg-base-100"
         >
             <section className="bg-base-100 px-6 py-8">
                 <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
@@ -165,4 +166,4 @@ const Timeline = () => {
     );
 };
 
-export default Timeline;
+export default Experience;

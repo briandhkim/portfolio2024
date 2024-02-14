@@ -1,5 +1,6 @@
 const StackedWrapper = ({
     children,
+    className = '',
     sectionTitle = '',
     id = '',
     headerBg = 'bg-base-200',
@@ -15,8 +16,8 @@ const StackedWrapper = ({
         <body class="h-full">
         ```
       */}
-            <div className={`${bodyBg} min-h-screen`} id={id}>
-                <div className={`${headerBg} pb-32 pt-20`}>
+            <div className={`${bodyBg} ${className} min-h-screen`} id={id}>
+                <div className={`${headerBg} pb-32 pt-16`}>
                     <header className="py-10">
                         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                             <h1 className="text-3xl font-bold tracking-tight text-primary">
