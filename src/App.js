@@ -3,7 +3,6 @@ import './App.css';
 import Landing from './component/Landing';
 import About from './component/About';
 import MainWrapper from './component/MainWrapper';
-import Navbar from './component/Navbar';
 import Experience from './component/Experience';
 import NavbarTw from './component/NavbarTw';
 

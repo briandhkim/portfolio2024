@@ -27,7 +27,7 @@ const Experience = ({ setCurrentPage }) => {
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 20 20"
                                 fill="currentColor"
-                                className="h-5 w-5"
+                                className="h-5 w-5 text-primary"
                             >
                                 <path
                                     fillRule="evenodd"
@@ -130,8 +130,8 @@ const Experience = ({ setCurrentPage }) => {
                             <time className="font-mono italic">2007</time>
                             <div className="text-lg font-black">iPhone</div>
                             iPhone is a line of smartphones produced by Apple
-                            Inc. that use Apple own iOS mobile operating
-                            system. The first-generation iPhone was announced by
+                            Inc. that use Apple own iOS mobile operating system.
+                            The first-generation iPhone was announced by
                             then-Apple CEO Steve Jobs on January 9, 2007. Since
                             then, Apple has annually released new iPhone models
                             and iOS updates. As of November 1, 2018, more than

@@ -2,8 +2,6 @@ import { Fragment, useEffect, useState } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
-
-
 export default function NavbarTw({ page }) {
     const navigation = [
         { name: 'About', href: '#', current: true },
@@ -22,7 +20,7 @@ export default function NavbarTw({ page }) {
     }
 
     useEffect(() => {
-        setCurrentPage(page)
+        setCurrentPage(page);
     }, [page]);
 
     return (
@@ -84,18 +82,42 @@ export default function NavbarTw({ page }) {
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <button
-                                    type="button"
-                                    className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                                >
-                                    <span className="sr-only">
-                                        View notifications
-                                    </span>
-                                    <BellIcon
-                                        className="h-6 w-6"
-                                        aria-hidden="true"
+                                <label className="cursor-pointer grid place-items-center">
+                                    <input
+                                        type="checkbox"
+                                        value="dim"
+                                        className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
                                     />
-                                </button>
+                                    <svg
+                                        className="col-start-1 row-start-1 stroke-base-100 fill-base-100"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <circle cx="12" cy="12" r="5" />
+                                        <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+                                    </svg>
+                                    <svg
+                                        className="col-start-2 row-start-1 stroke-base-100 fill-base-100"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                    </svg>
+                                </label>
 
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="relative ml-3">
