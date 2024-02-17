@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Landing from './component/Landing';
-import About from './component/About';
+import Landing from './component/pages/Landing';
+import About from './component/pages/About';
 import MainWrapper from './component/MainWrapper';
-import Experience from './component/Experience';
+import Experience from './component/pages/Experience';
 import NavbarTw from './component/NavbarTw';
+import Skills from './component/pages/Skills';
 
 function App() {
     const [unlocked, setUnlocked] = useState(false);
@@ -42,6 +43,7 @@ function App() {
                     <NavbarTw page={currentPage} />
                     <About setCurrentPage={setCurrentPage} />
                     <Experience setCurrentPage={setCurrentPage} />
+                    <Skills setCurrentPage={setCurrentPage} />
                 </>
             )}
             {/* <About /> */}

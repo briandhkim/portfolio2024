@@ -1,7 +1,7 @@
 import { PaperClipIcon, SunIcon } from '@heroicons/react/24/solid';
-import background from '../assets/images/background.jpg';
-import StackedWrapper from './common/StackedWrapper';
-import { useOnScreen } from '../hooks/useOnScreen';
+import background from '../../assets/images/background.jpg';
+import StackedWrapper from '../common/StackedWrapper';
+import { useOnScreen } from '../../hooks/useOnScreen';
 import { useEffect, useRef } from 'react';
 
 const About = ({ setCurrentPage }) => {

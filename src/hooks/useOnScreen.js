@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-export const useOnScreen = ref => {
+export const useOnScreen = (ref, threshold = 0.65) => {
     const [isOnScreen, setIsOnScreen] = useState(false);
     const observerRef = useRef(null);
 
@@ -8,7 +8,7 @@ export const useOnScreen = ref => {
         observerRef.current = new IntersectionObserver(
             ([entry]) => setIsOnScreen(entry.isIntersecting),
             {
-                threshold: 0.65,
+                threshold,
             }
         );
     }, []);
