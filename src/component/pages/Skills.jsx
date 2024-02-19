@@ -1,69 +1,20 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useOnScreen } from '../../hooks/useOnScreen';
 import StackedWrapper from '../common/StackedWrapper';
 import { Transition } from '@headlessui/react';
-import JavaScriptIcon from '../icons/JavaScriptIcon';
-import JQueryIcon from '../icons/JQueryIcon';
-import VueIcon from '../icons/VueIcon';
-import ReactIcon from '../icons/ReactIcon';
-import PhpIcon from '../icons/PhpIcon';
-import MySqlIcon from '../icons/MySqlIcon';
-import LaravelIcon from '../icons/LaravelIcon';
-import NextIcon from '../icons/NextIcon';
-import TailwindIcon from '../icons/TailwindIcon';
-import BootstrapIcon from '../icons/BootstrapIcon';
+import { skillList } from '../../util/constants';
 
 const Skills = ({ setCurrentPage }) => {
-    const skills = [
-        {
-            name: 'JavaScript',
-            icon: <JavaScriptIcon />,
-        },
-        {
-            name: 'jQuery',
-            icon: <JQueryIcon />,
-        },
-        {
-            name: 'Vue.js',
-            icon: <VueIcon />,
-        },
-        {
-            name: 'React',
-            icon: <ReactIcon />,
-        },
-        {
-            name: 'Next.js',
-            icon: <NextIcon />,
-        },
-        {
-            name: 'PHP',
-            icon: <PhpIcon />,
-        },
-        {
-            name: 'Laravel',
-            icon: <LaravelIcon />,
-        },
-        {
-            name: 'MySQL',
-            icon: <MySqlIcon />,
-        },
-        {
-            name: 'Tailwind CSS',
-            icon: <TailwindIcon />,
-        },
-        {
-            name: 'Bootstrap',
-            icon: <BootstrapIcon />,
-        },
-    ];
-
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ');
     }
 
+    const skills = skillList.sort((a, b) => a.name.localeCompare(b.name));
+
     const sectionRef = useRef(null);
     const isOnScreen = useOnScreen(sectionRef);
     const shouldFadeIn = useOnScreen(sectionRef, 0.4);
+    const [filteredSkills, setFilteredSkills] = useState(skills);
 
     useEffect(() => {
         if (isOnScreen) setCurrentPage('Skills');
@@ -93,12 +44,12 @@ const Skills = ({ setCurrentPage }) => {
                     </h2>
                     <ul
                         role="list"
-                        className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4"
+                        className="mt-3 grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4 lg:gap-7"
                     >
-                        {skills.map(skill => (
+                        {filteredSkills.map(skill => (
                             <li
                                 key={skill.name}
-                                className="col-span-1 flex rounded-md shadow-sm"
+                                className="col-span-1 flex rounded-md shadow-md"
                             >
                                 <div
                                     className={classNames(
@@ -112,10 +63,12 @@ const Skills = ({ setCurrentPage }) => {
                                 </div>
                                 <div className="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
                                     <div className="flex-1 truncate px-4 py-2 text-sm">
-                                        <p className="font-medium text-gray-900 hover:text-gray-600">
+                                        <p className="font-medium text-gray-900">
                                             {skill.name}
                                         </p>
-                                        <p className="text-gray-500">test</p>
+                                        <p className="text-gray-500">
+                                            {skill.category}
+                                        </p>
                                     </div>
                                 </div>
                             </li>
