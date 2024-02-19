@@ -2,37 +2,58 @@ import { useEffect, useRef } from 'react';
 import { useOnScreen } from '../../hooks/useOnScreen';
 import StackedWrapper from '../common/StackedWrapper';
 import { Transition } from '@headlessui/react';
-import { EllipsisVerticalIcon } from '@heroicons/react/20/solid';
+import JavaScriptIcon from '../icons/JavaScriptIcon';
+import JQueryIcon from '../icons/JQueryIcon';
+import VueIcon from '../icons/VueIcon';
+import ReactIcon from '../icons/ReactIcon';
+import PhpIcon from '../icons/PhpIcon';
+import MySqlIcon from '../icons/MySqlIcon';
+import LaravelIcon from '../icons/LaravelIcon';
+import NextIcon from '../icons/NextIcon';
+import TailwindIcon from '../icons/TailwindIcon';
+import BootstrapIcon from '../icons/BootstrapIcon';
 
 const Skills = ({ setCurrentPage }) => {
-    const projects = [
+    const skills = [
         {
-            name: 'Graph API',
-            initials: 'GA',
-            href: '#',
-            members: 16,
-            bgColor: 'bg-pink-600',
+            name: 'JavaScript',
+            icon: <JavaScriptIcon />,
         },
         {
-            name: 'Component Design',
-            initials: 'CD',
-            href: '#',
-            members: 12,
-            bgColor: 'bg-purple-600',
+            name: 'jQuery',
+            icon: <JQueryIcon />,
         },
         {
-            name: 'Templates',
-            initials: 'T',
-            href: '#',
-            members: 16,
-            bgColor: 'bg-yellow-500',
+            name: 'Vue.js',
+            icon: <VueIcon />,
         },
         {
-            name: 'React Components',
-            initials: 'RC',
-            href: '#',
-            members: 8,
-            bgColor: 'bg-green-500',
+            name: 'React',
+            icon: <ReactIcon />,
+        },
+        {
+            name: 'Next.js',
+            icon: <NextIcon />,
+        },
+        {
+            name: 'PHP',
+            icon: <PhpIcon />,
+        },
+        {
+            name: 'Laravel',
+            icon: <LaravelIcon />,
+        },
+        {
+            name: 'MySQL',
+            icon: <MySqlIcon />,
+        },
+        {
+            name: 'Tailwind CSS',
+            icon: <TailwindIcon />,
+        },
+        {
+            name: 'Bootstrap',
+            icon: <BootstrapIcon />,
         },
     ];
 
@@ -74,44 +95,27 @@ const Skills = ({ setCurrentPage }) => {
                         role="list"
                         className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4"
                     >
-                        {projects.map(project => (
+                        {skills.map(skill => (
                             <li
-                                key={project.name}
+                                key={skill.name}
                                 className="col-span-1 flex rounded-md shadow-sm"
                             >
                                 <div
                                     className={classNames(
-                                        project.bgColor,
-                                        'flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white'
+                                        skill.bgColor,
+                                        'bg-base-300 bg-opacity-50 flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white'
                                     )}
                                 >
-                                    {project.initials}
+                                    <div className="flex flex-1 h-5/6 w-auto justify-center">
+                                        {skill.icon}
+                                    </div>
                                 </div>
                                 <div className="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
                                     <div className="flex-1 truncate px-4 py-2 text-sm">
-                                        <a
-                                            href={project.href}
-                                            className="font-medium text-gray-900 hover:text-gray-600"
-                                        >
-                                            {project.name}
-                                        </a>
-                                        <p className="text-gray-500">
-                                            {project.members} Members
+                                        <p className="font-medium text-gray-900 hover:text-gray-600">
+                                            {skill.name}
                                         </p>
-                                    </div>
-                                    <div className="flex-shrink-0 pr-2">
-                                        <button
-                                            type="button"
-                                            className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                                        >
-                                            <span className="sr-only">
-                                                Open options
-                                            </span>
-                                            <EllipsisVerticalIcon
-                                                className="h-5 w-5"
-                                                aria-hidden="true"
-                                            />
-                                        </button>
+                                        <p className="text-gray-500">test</p>
                                     </div>
                                 </div>
                             </li>
