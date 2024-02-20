@@ -26,7 +26,7 @@ const Experience = ({ setCurrentPage }) => {
                 enter="transition-opacity duration-[1200ms]"
                 enterFrom="opacity-20"
                 enterTo="opacity-100"
-                leave="transition-opacity duration-[1500ms]"
+                leave="transition-opacity duration-[1200ms]"
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
             >
