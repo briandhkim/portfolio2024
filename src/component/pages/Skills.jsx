@@ -1,7 +1,8 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
+import { RadioGroup, Transition } from '@headlessui/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useOnScreen } from '../../hooks/useOnScreen';
 import StackedWrapper from '../common/StackedWrapper';
-import { RadioGroup, Transition } from '@headlessui/react';
 import { skillList } from '../../util/constants';
 
 const skillFilters = [
@@ -41,12 +42,15 @@ const Skills = ({ setCurrentPage }) => {
     }, [shouldFadeIn]);
 
     useEffect(() => {
+        setFilteredSkills([]);
         if (skillFilter.name === 'All') {
             setFilteredSkills(skills);
         } else {
-            setFilteredSkills(
-                skills.filter(skill => skill.category === skillFilter.name)
-            );
+            setTimeout(() => {
+                setFilteredSkills(
+                    skills.filter(skill => skill.category === skillFilter.name)
+                );
+            }, 360);
         }
     }, [skillFilter]);
 
@@ -84,8 +88,8 @@ const Skills = ({ setCurrentPage }) => {
                             Skill filter
                         </RadioGroup.Label>
                         <div className="flex">
-                            <div className="flex items-center font-medium mr-1">
-                                Filter by:
+                            <div className="flex items-center font-normal md:font-medium mr-1 ">
+                                Filter:
                             </div>
                             {skillFilters.map((option, idx) => (
                                 <Fragment key={idx}>
@@ -96,7 +100,7 @@ const Skills = ({ setCurrentPage }) => {
                                             classNames(
                                                 active ? '' : '',
                                                 checked ? '' : ' ',
-                                                'cursor-pointer flex items-center justify-center rounded-md py-3 px-3 text-md font-extrabold uppercase bg-transparent relative'
+                                                'cursor-pointer flex items-center justify-center rounded-md py-3 px-3 text-sm md:text-base font-extrabold uppercase bg-transparent relative'
                                             )
                                         }
                                     >
@@ -111,7 +115,7 @@ const Skills = ({ setCurrentPage }) => {
                                         )}
                                     </RadioGroup.Option>
                                     {idx < skillFilters.length - 1 && (
-                                        <span className="text-lg font-extrabold flex items-center">
+                                        <span className="text-sm md:text-base font-extrabold flex items-center">
                                             /
                                         </span>
                                     )}
@@ -124,33 +128,42 @@ const Skills = ({ setCurrentPage }) => {
                         role="list"
                         className="mt-3 grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4 lg:gap-7"
                     >
-                        {filteredSkills.map(skill => (
-                            <li
-                                key={skill.name}
-                                className="col-span-1 flex rounded-md shadow-md"
-                            >
-                                <div
-                                    className={classNames(
-                                        skill.bgColor,
-                                        'bg-base-300 bg-opacity-50 flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white'
-                                    )}
+                        <AnimatePresence>
+                            {filteredSkills.map(skill => (
+                                <motion.li
+                                    key={skill.name}
+                                    className="col-span-1 flex rounded-md shadow-md"
+                                    initial={{ opacity: 0.4, scale: 0.7 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0.25, scale: 0.7 }}
+                                    transition={{
+                                        ease: 'easeInOut',
+                                        duration: 0.35,
+                                    }}
                                 >
-                                    <div className="flex flex-1 h-5/6 w-auto justify-center">
-                                        {skill.icon}
+                                    <div
+                                        className={classNames(
+                                            skill.bgColor,
+                                            'bg-base-300 bg-opacity-50 flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white'
+                                        )}
+                                    >
+                                        <div className="flex flex-1 h-5/6 w-auto justify-center">
+                                            {skill.icon}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
-                                    <div className="flex-1 truncate px-4 py-2 text-sm">
-                                        <p className="font-medium text-gray-900">
-                                            {skill.name}
-                                        </p>
-                                        <p className="text-gray-500">
-                                            {skill.category}
-                                        </p>
+                                    <div className="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
+                                        <div className="flex-1 truncate px-4 py-2 text-sm">
+                                            <p className="font-medium text-gray-900">
+                                                {skill.name}
+                                            </p>
+                                            <p className="text-gray-500">
+                                                {skill.category}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                        ))}
+                                </motion.li>
+                            ))}
+                        </AnimatePresence>
                     </ul>
                 </div>
             </Transition>
