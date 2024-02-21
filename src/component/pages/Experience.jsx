@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import StackedWrapper from '../common/StackedWrapper';
 import { useOnScreen } from '../../hooks/useOnScreen';
 import { Transition } from '@headlessui/react';
@@ -8,9 +8,14 @@ const Experience = ({ setCurrentPage }) => {
     const isOnScreen = useOnScreen(sectionRef);
     const shouldFadeIn = useOnScreen(sectionRef, 0.4);
 
+    const [fadeIn, setFadeIn] = useState(false);
+
     useEffect(() => {
         if (isOnScreen) setCurrentPage('Experience');
     }, [isOnScreen]);
+    useEffect(() => {
+        if (shouldFadeIn && !fadeIn) setFadeIn(true);
+    }, [shouldFadeIn]);
 
     return (
         <StackedWrapper
@@ -22,13 +27,14 @@ const Experience = ({ setCurrentPage }) => {
             ref={sectionRef}
         >
             <Transition
-                show={shouldFadeIn}
-                enter="transition-opacity duration-[1200ms]"
+                show={fadeIn}
+                enter="transition-opacity ease-in-out duration-[1200ms]"
                 enterFrom="opacity-20"
                 enterTo="opacity-100"
-                leave="transition-opacity duration-[1200ms]"
+                leave="transition-opacity ease-in-out duration-[1200ms]"
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
+                unmount={false}
             >
                 <div className="bg-base-100 px-6 py-8 rounded-2xl">
                     <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
