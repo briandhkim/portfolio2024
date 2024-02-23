@@ -12,17 +12,18 @@ const StackedWrapperWithFade = forwardRef(
             id = '',
             headerBg = 'bg-base-200',
             bodyBg = 'bg-base-100',
+            setMinHeightToScreen = true,
         } = props;
 
         return (
             <section
-                className={`${bodyBg} ${className} min-h-screen`}
+                className={`${bodyBg} ${className} ${setMinHeightToScreen && 'min-h-screen'}`}
                 id={id}
                 ref={ref}
             >
                 <Transition
                     show={fadeIn}
-                    enter="transition-opacity ease-in-out duration-[1200ms]"
+                    enter="transition-opacity ease-in-out duration-[500ms]"
                     enterFrom="opacity-20"
                     enterTo="opacity-100"
                     leave="transition-opacity ease-in-out duration-[1200ms]"

@@ -6,6 +6,8 @@ import MainWrapper from './component/MainWrapper';
 import Experience from './component/pages/Experience';
 import NavbarTw from './component/NavbarTw';
 import Skills from './component/pages/Skills';
+import Contact from './component/pages/Contact';
+import Footer from './component/pages/Footer';
 
 function App() {
     const [unlocked, setUnlocked] = useState(false);
@@ -44,6 +46,8 @@ function App() {
                     <About setCurrentPage={setCurrentPage} />
                     <Experience setCurrentPage={setCurrentPage} />
                     <Skills setCurrentPage={setCurrentPage} />
+                    <Contact setCurrentPage={setCurrentPage} />
+                    <Footer />
                 </>
             )}
             {/* <About /> */}
