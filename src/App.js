@@ -20,11 +20,8 @@ function App() {
             aboutSection.scrollIntoView({ behavior: 'smooth' });
 
             setTimeout(() => {
-                // console.log(window.scrollY, aboutSection.offsetTop);
-                if (window.scrollY === aboutSection.offsetTop) {
-                    setShowLanding(false);
-                    // console.log('unlock');
-                }
+                setShowLanding(false);
+                // console.log('unlock');
             }, 800);
         }
 

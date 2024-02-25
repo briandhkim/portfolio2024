@@ -1,20 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useOnScreen } from '../../hooks/useOnScreen';
 import StackedWrapperWithFade from '../common/StackedWrapperWithFade';
 
 const Experience = ({ setCurrentPage }) => {
     const sectionRef = useRef(null);
     const isOnScreen = useOnScreen(sectionRef);
-    const shouldFadeIn = useOnScreen(sectionRef, 0.4);
-
-    const [fadeIn, setFadeIn] = useState(false);
 
     useEffect(() => {
         if (isOnScreen) setCurrentPage('Experience');
     }, [isOnScreen]);
-    useEffect(() => {
-        if (shouldFadeIn && !fadeIn) setFadeIn(true);
-    }, [shouldFadeIn]);
 
     return (
         <StackedWrapperWithFade
@@ -24,7 +18,6 @@ const Experience = ({ setCurrentPage }) => {
             // bodyBg="bg-gradient-to-b from-base-300 from-10% via-base-300 via-45% to-base-100 to-70%"
             bodyBg="bg-base-100"
             ref={sectionRef}
-            fadeIn={fadeIn}
         >
             <div className="bg-base-100 px-6 py-8 rounded-2xl">
                 <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">

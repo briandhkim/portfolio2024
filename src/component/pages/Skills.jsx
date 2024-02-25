@@ -28,18 +28,13 @@ const Skills = ({ setCurrentPage }) => {
 
     const sectionRef = useRef(null);
     const isOnScreen = useOnScreen(sectionRef);
-    const shouldFadeIn = useOnScreen(sectionRef, 0.4);
 
     const [filteredSkills, setFilteredSkills] = useState(skills);
     const [skillFilter, setSkillFilter] = useState(skillFilters[0]);
-    const [fadeIn, setFadeIn] = useState(false);
 
     useEffect(() => {
         if (isOnScreen) setCurrentPage('Skills');
     }, [isOnScreen]);
-    useEffect(() => {
-        if (shouldFadeIn && !fadeIn) setFadeIn(true);
-    }, [shouldFadeIn]);
 
     useEffect(() => {
         setFilteredSkills([]);
@@ -64,7 +59,6 @@ const Skills = ({ setCurrentPage }) => {
             setMinHeightToScreen={false}
             className="pb-28"
             ref={sectionRef}
-            fadeIn={fadeIn}
         >
             <div className="bg-base-200 px-6 py-8 rounded-2xl ">
                 <h2 className="text-lg font-medium text-gray-500">

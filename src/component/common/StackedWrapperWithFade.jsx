@@ -1,11 +1,10 @@
 import { Transition } from '@headlessui/react';
 import { forwardRef } from 'react';
+import { motion } from 'framer-motion';
 
 const StackedWrapperWithFade = forwardRef(
     function StackedWrapperWithFade(props, ref) {
         const {
-            fadeIn = false,
-            unmount = false,
             children,
             className = '',
             sectionTitle = '',
@@ -16,39 +15,32 @@ const StackedWrapperWithFade = forwardRef(
         } = props;
 
         return (
-            <section
+            <motion.section
                 className={`${bodyBg} ${className} ${setMinHeightToScreen && 'min-h-screen'}`}
                 id={id}
                 ref={ref}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1.2 }}
+                viewport={{ once: true, amount: 0.35 }}
             >
-                <Transition
-                    show={fadeIn}
-                    enter="transition-opacity ease-in-out duration-[500ms]"
-                    enterFrom="opacity-20"
-                    enterTo="opacity-100"
-                    leave="transition-opacity ease-in-out duration-[1200ms]"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                    unmount={unmount}
-                >
-                    <div className={`${headerBg} pb-32 pt-16`}>
-                        <header className="py-10">
-                            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                                <h1 className="text-3xl font-bold tracking-tight ">
-                                    {sectionTitle}
-                                </h1>
-                            </div>
-                        </header>
-                    </div>
-
-                    <div className="-mt-32">
-                        <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
-                            {/* Your content */}
-                            {children}
+                <div className={`${headerBg} pb-32 pt-16`}>
+                    <header className="py-10">
+                        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                            <h1 className="text-3xl font-bold tracking-tight ">
+                                {sectionTitle}
+                            </h1>
                         </div>
+                    </header>
+                </div>
+
+                <div className="-mt-32">
+                    <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+                        {/* Your content */}
+                        {children}
                     </div>
-                </Transition>
-            </section>
+                </div>
+            </motion.section>
         );
     }
 );
