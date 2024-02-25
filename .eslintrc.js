@@ -40,5 +40,6 @@ module.exports = {
         'no-unused-vars': ['warn'],
         'react/jsx-uses-react': 'off',
         'react/react-in-jsx-scope': 'off',
+        "react/no-unescaped-entities": 0,
     },
 };

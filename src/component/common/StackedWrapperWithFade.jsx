@@ -21,7 +21,7 @@ const StackedWrapperWithFade = forwardRef(
                 ref={ref}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 1.2 }}
+                transition={{ ease: 'easeInOut', duration: 1.2 }}
                 viewport={{ once: true, amount: 0.35 }}
             >
                 <div className={`${headerBg} pb-32 pt-16`}>
