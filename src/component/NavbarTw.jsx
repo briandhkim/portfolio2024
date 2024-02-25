@@ -25,6 +25,8 @@ export default function NavbarTw({ page }) {
         'nord',
         'sunset',
     ];
+    const darkThemes = ['dark', 'business', 'night', 'dim', 'sunset'];
+
     const [currentPage, setCurrentPage] = useState('About');
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [currentTheme, setCurrentTheme] = useState('retro');
@@ -49,6 +51,15 @@ export default function NavbarTw({ page }) {
     useEffect(() => {
         setCurrentPage(page);
     }, [page]);
+
+    useEffect(() => {
+        const root = document.getElementById('root');
+        if (darkThemes.includes(currentTheme)) {
+            root.classList.add('dark');
+        } else {
+            root.classList.remove('dark');
+        }
+    }, [currentTheme]);
 
     return (
         <Disclosure
@@ -144,6 +155,11 @@ export default function NavbarTw({ page }) {
                                                     className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
                                                     aria-label={theme}
                                                     value={theme}
+                                                    onChange={e =>
+                                                        setCurrentTheme(
+                                                            e.target.value
+                                                        )
+                                                    }
                                                 />
                                             </li>
                                         ))}

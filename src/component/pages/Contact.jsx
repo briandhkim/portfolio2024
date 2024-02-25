@@ -44,7 +44,7 @@ const Contact = ({ setCurrentPage }) => {
                             />
                         </div>
                         <div>
-                            <h3 className="text-base font-semibold leading-7 text-gray-900">
+                            <h3 className="text-base font-semibold leading-7 text-gray-900 dark:text-gray-100">
                                 Email
                             </h3>
                             <AnimatePresence initial={false} mode="wait">
@@ -90,7 +90,7 @@ const Contact = ({ setCurrentPage }) => {
                             />
                         </div>
                         <div>
-                            <h3 className="text-base font-semibold leading-7 text-gray-900">
+                            <h3 className="text-base font-semibold leading-7 text-gray-900 dark:text-gray-100">
                                 LinkedIn
                             </h3>
                             {/* <p className="mt-2 leading-7 text-gray-600">
