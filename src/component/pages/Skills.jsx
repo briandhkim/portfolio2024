@@ -57,7 +57,7 @@ const Skills = ({ setCurrentPage }) => {
             // bodyBg="bg-gradient-to-b from-base-100 from-10% via-base-100 via-45% to-base-300 to-70%"
             bodyBg="bg-base-300"
             setMinHeightToScreen={false}
-            className="pb-28"
+            className="pb-0 sm:pb-4 md:pb-10"
             ref={sectionRef}
         >
             <div className="bg-base-200 px-6 py-8 rounded-2xl ">

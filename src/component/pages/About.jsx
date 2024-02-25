@@ -3,14 +3,20 @@ import background from '../../assets/images/background.jpg';
 import StackedWrapper from '../common/StackedWrapper';
 import { useOnScreen } from '../../hooks/useOnScreen';
 import { useEffect, useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import {
+    faHouseChimney,
+    faMapLocationDot,
+} from '@fortawesome/free-solid-svg-icons';
 
 const About = ({ setCurrentPage }) => {
     const aboutContent = {
         'Full name': 'Brian Kim, 동현',
         'Current position': 'Full Stack Software Engineer',
         'Current company': bsmLink(),
-        Social: 'LinkedIn, GitHub',
-        Location: 'Southern California',
+        Social: socialLinks(),
+        Location: locationLink(),
         About: 'Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.',
     };
 
@@ -27,20 +33,6 @@ const About = ({ setCurrentPage }) => {
             </dd>
         </div>
     ));
-
-    function bsmLink() {
-        return (
-            <a
-                className="link link-primary font-medium"
-                target="_blank"
-                href="https://www.besmartee.com"
-                rel="noreferrer"
-            >
-                BeSmartee
-                <SunIcon className="h-5 w-5 ml-1.5 inline " />
-            </a>
-        );
-    }
 
     const sectionRef = useRef(null);
     const isOnScreen = useOnScreen(sectionRef);
@@ -162,3 +154,57 @@ const About = ({ setCurrentPage }) => {
 };
 
 export default About;
+
+function bsmLink() {
+    return (
+        <a
+            className="link link-accent font-medium "
+            target="_blank"
+            href="https://www.besmartee.com"
+            rel="noreferrer"
+        >
+            BeSmartee
+            <FontAwesomeIcon className="h-5 w-5 ml-1" icon={faHouseChimney} />
+        </a>
+    );
+}
+
+function socialLinks() {
+    return (
+        <>
+            <a
+                className="link font-medium text-[#0a66c2] hover:text-[#004183]"
+                target="_blank"
+                href="https://www.linkedin.com/in/bdhk/"
+                rel="noreferrer"
+            >
+                LinkedIn
+                <FontAwesomeIcon className="h-5 w-5 ml-1 " icon={faLinkedin} />
+            </a>
+            ,
+            <a
+                className="ml-3 link font-medium text-[#0a66c2] hover:text-[#004183]"
+                target="_blank"
+                href="https://github.com/briandhkim"
+                rel="noreferrer"
+            >
+                GitHub
+                <FontAwesomeIcon className="h-5 w-5 ml-1" icon={faGithub} />
+            </a>
+        </>
+    );
+}
+
+function locationLink() {
+    return (
+        <a
+            className="link link-neutral font-medium "
+            target="_blank"
+            href="https://maps.app.goo.gl/HuXK2qSdAmySdZrb9"
+            rel="noreferrer"
+        >
+            Southern California
+            <FontAwesomeIcon className="h-5 w-5 ml-1" icon={faMapLocationDot} />
+        </a>
+    );
+}
