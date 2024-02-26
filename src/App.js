@@ -20,7 +20,6 @@ function App() {
 
             setTimeout(() => {
                 setShowLanding(false);
-                // console.log('unlock');
             }, 800);
         }
 
@@ -31,7 +30,7 @@ function App() {
 
     function navHandler(id) {
         document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        setCurrentPage(id);
+        // setCurrentPage(id);
     }
 
     return (
