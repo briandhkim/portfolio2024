@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Landing from './component/pages/Landing';
 import About from './component/pages/About';
-import MainWrapper from './component/MainWrapper';
 import Experience from './component/pages/Experience';
 import NavbarTw from './component/NavbarTw';
 import Skills from './component/pages/Skills';
@@ -30,24 +29,26 @@ function App() {
         }
     }, [unlocked]);
 
+    function navHandler(id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        setCurrentPage(id);
+    }
+
     return (
         <div className="App">
             {showLanding && (
                 <Landing unlocked={unlocked} setUnlocked={setUnlocked} />
             )}
-            {/* {unlocked && <MainWrapper />} */}
             {unlocked && (
                 <>
-                    {/* <Navbar /> */}
-                    <NavbarTw page={currentPage} />
+                    <NavbarTw page={currentPage} navHandler={navHandler} />
                     <About setCurrentPage={setCurrentPage} />
                     <Experience setCurrentPage={setCurrentPage} />
                     <Skills setCurrentPage={setCurrentPage} />
                     <Contact setCurrentPage={setCurrentPage} />
-                    <Footer />
+                    <Footer navHandler={navHandler} />
                 </>
             )}
-            {/* <About /> */}
         </div>
     );
 }

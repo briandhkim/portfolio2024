@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
 import { faPalette } from '@fortawesome/free-solid-svg-icons';
 
-export default function NavbarTw({ page }) {
+export default function NavbarTw({ page, navHandler }) {
     const navigation = [
         { name: 'About', href: '#', current: true },
         { name: 'Experience', href: '#', current: false },
@@ -35,10 +35,6 @@ export default function NavbarTw({ page }) {
 
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ');
-    }
-    function navHandler(id) {
-        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        setCurrentPage(id);
     }
 
     useEffect(() => {
@@ -106,9 +102,9 @@ export default function NavbarTw({ page }) {
                                             // href={item.href}
                                             className={`${classNames(
                                                 item.name === currentPage
-                                                    ? 'border-primary text-accent'
-                                                    : 'border-transparent hover:border-primary hover:text-accent text-primary'
-                                            )} ${isDarkMode && item.name !== currentPage ? '' : ''} inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium`}
+                                                    ? 'border-accent text-accent'
+                                                    : 'border-transparent hover:border-accent hover:text-accent text-primary'
+                                            )} ${isDarkMode && item.name !== currentPage ? '' : ''} inline-flex items-center border-b-4 px-1 pt-1 text-base font-bold`}
                                             onClick={() =>
                                                 navHandler(item.name)
                                             }

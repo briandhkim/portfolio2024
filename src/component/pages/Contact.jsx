@@ -35,8 +35,8 @@ const Contact = ({ setCurrentPage }) => {
                         Let's make things happen
                     </p>
                 </div>
-                <div className="mx-auto mt-20 max-w-lg space-y-16">
-                    <div className="flex gap-x-6">
+                <div className="mx-auto mt-20 max-w-lg space-y-16 ">
+                    <div className="flex gap-x-6 justify-center">
                         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-red-500">
                             <FontAwesomeIcon
                                 className="h-6 w-6 text-white"
@@ -50,7 +50,7 @@ const Contact = ({ setCurrentPage }) => {
                             <AnimatePresence initial={false} mode="wait">
                                 {!showEmail && (
                                     <motion.p
-                                        className="mt-2 leading-7 text-accent bg-accent cursor-pointer tooltip"
+                                        className="mt-2 leading-7 text-transparent bg-gradient-to-r from-primary to-accent cursor-pointer tooltip"
                                         data-tip="Show email"
                                         onClick={() => setShowEmail(true)}
                                         exit={{ rotateX: 90, scale: 0.85 }}
@@ -82,7 +82,7 @@ const Contact = ({ setCurrentPage }) => {
                             </AnimatePresence>
                         </div>
                     </div>
-                    <div className="flex gap-x-6">
+                    <div className="flex gap-x-6 justify-center">
                         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#0a66c2]">
                             <FontAwesomeIcon
                                 className="h-6 w-6 text-white"

@@ -1,6 +1,4 @@
-import { PaperClipIcon } from '@heroicons/react/24/solid';
 import background from '../../assets/images/background.jpg';
-import StackedWrapper from '../common/StackedWrapper';
 import { useOnScreen } from '../../hooks/useOnScreen';
 import { useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
