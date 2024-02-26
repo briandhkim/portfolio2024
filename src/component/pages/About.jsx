@@ -1,4 +1,4 @@
-import { PaperClipIcon, SunIcon } from '@heroicons/react/24/solid';
+import { PaperClipIcon } from '@heroicons/react/24/solid';
 import background from '../../assets/images/background.jpg';
 import StackedWrapper from '../common/StackedWrapper';
 import { useOnScreen } from '../../hooks/useOnScreen';
@@ -9,15 +9,18 @@ import {
     faHouseChimney,
     faMapLocationDot,
 } from '@fortawesome/free-solid-svg-icons';
+import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
+import StackedWrapperWithFade from '../common/StackedWrapperWithFade';
 
 const About = ({ setCurrentPage }) => {
     const aboutContent = {
-        'Full name': 'Brian Kim, 동현',
+        'Full name': nameDescription(),
         'Current position': 'Full Stack Software Engineer',
         'Current company': bsmLink(),
         Social: socialLinks(),
         Location: locationLink(),
-        About: 'Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.',
+        About: aboutDescription(),
+        Resume: resumeLink(),
     };
 
     const aboutItems = Object.keys(aboutContent).map(label => (
@@ -42,12 +45,14 @@ const About = ({ setCurrentPage }) => {
     }, [isOnScreen]);
 
     return (
-        <StackedWrapper
+        <StackedWrapperWithFade
             sectionTitle="About"
             id="About"
             headerBg="bg-base-200"
             // bodyBg="bg-gradient-to-b from-base-200 from-10% via-base-200 via-25% to-base-300 to-70%"
             bodyBg="bg-base-300"
+            className="pb-0 sm:pb-4 md:pb-6"
+            setMinHeightToScreen={false}
             ref={sectionRef}
         >
             <div className="bg-base-100 rounded-2xl">
@@ -62,86 +67,9 @@ const About = ({ setCurrentPage }) => {
                     <div className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-9 lg:px-16 lg:py-12 xl:col-span-8">
                         <div className="max-w-xl lg:max-w-3xl">
                             <div className="">
-                                {/* <div className=" px-4 sm:px-0">
-                                    <h3 className="text-base font-semibold leading-7 text-gray-900">
-                                        About me
-                                    </h3>
-                                    <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
-                                        Personal details and application.
-                                    </p>
-                                </div> */}
-                                {/* <div className=" pb-6 pt-4 sm:pb-20 ">
-                                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                                        <div className="mx-auto max-w-2xl lg:mx-0">
-                                            <h2 className=" text-3xl font-semibold tracking-tight sm:text-5xl">
-                                                About
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </div> */}
                                 <div className="mt-6 border-t border-base-300">
                                     <dl className="divide-y divide-base-300">
                                         {aboutItems}
-                                        <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                            <dt className="text-sm font-medium leading-6 text-gray-900">
-                                                Attachments
-                                            </dt>
-                                            <dd className="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                <ul
-                                                    role="list"
-                                                    className="divide-y divide-gray-100 rounded-md border border-gray-200"
-                                                >
-                                                    <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-                                                        <div className="flex w-0 flex-1 items-center">
-                                                            <PaperClipIcon
-                                                                className="h-5 w-5 flex-shrink-0 text-gray-400"
-                                                                aria-hidden="true"
-                                                            />
-                                                            <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                                                                <span className="truncate font-medium">
-                                                                    resume_back_end_developer.pdf
-                                                                </span>
-                                                                <span className="flex-shrink-0 text-gray-400">
-                                                                    2.4mb
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div className="ml-4 flex-shrink-0">
-                                                            <a
-                                                                href="#"
-                                                                className="font-medium text-indigo-600 hover:text-indigo-500"
-                                                            >
-                                                                Download
-                                                            </a>
-                                                        </div>
-                                                    </li>
-                                                    <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-                                                        <div className="flex w-0 flex-1 items-center">
-                                                            <PaperClipIcon
-                                                                className="h-5 w-5 flex-shrink-0 text-gray-400"
-                                                                aria-hidden="true"
-                                                            />
-                                                            <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                                                                <span className="truncate font-medium">
-                                                                    coverletter_back_end_developer.pdf
-                                                                </span>
-                                                                <span className="flex-shrink-0 text-gray-400">
-                                                                    4.5mb
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div className="ml-4 flex-shrink-0">
-                                                            <a
-                                                                href="#"
-                                                                className="font-medium text-indigo-600 hover:text-indigo-500"
-                                                            >
-                                                                Download
-                                                            </a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </dd>
-                                        </div>
                                     </dl>
                                 </div>
                             </div>
@@ -149,11 +77,37 @@ const About = ({ setCurrentPage }) => {
                     </div>
                 </div>
             </div>
-        </StackedWrapper>
+        </StackedWrapperWithFade>
     );
 };
 
 export default About;
+
+function nameDescription() {
+    return (
+        <p>
+            Dong Hyun Kim - 동현
+            <br />
+            (Brian)
+        </p>
+    );
+}
+
+function aboutDescription() {
+    return (
+        <p>
+            Experienced in over 5 years of web development work with exposure to
+            both frontend and backend stack. Skilled in working with diverse
+            groups of people including not only developers and QAs but also
+            business analysts, implementation specialists, client success
+            managers, account executives, and more. Seasoned in quickly adapting
+            to new technologies with expertise in providing rapid, effective
+            solutions. Always seeking to learn new skills and to improve
+            development techniques to more effectively support team members and
+            perform duties of work.
+        </p>
+    );
+}
 
 function bsmLink() {
     return (
@@ -164,7 +118,7 @@ function bsmLink() {
             rel="noreferrer"
         >
             BeSmartee
-            <FontAwesomeIcon className="h-5 w-5 ml-1" icon={faHouseChimney} />
+            <FontAwesomeIcon className="h-5 w-5 ml-1.5" icon={faHouseChimney} />
         </a>
     );
 }
@@ -183,7 +137,7 @@ function socialLinks() {
             </a>
             ,
             <a
-                className="ml-3 link font-medium text-[#0a66c2] hover:text-[#004183]"
+                className="ml-3 link font-medium text-neutral-800 hover:text-neutral-950 dark:text-neutral-100 dark:hover:text-neutral-400"
                 target="_blank"
                 href="https://github.com/briandhkim"
                 rel="noreferrer"
@@ -198,13 +152,27 @@ function socialLinks() {
 function locationLink() {
     return (
         <a
-            className="link link-neutral font-medium "
+            className="link link-error font-medium "
             target="_blank"
             href="https://maps.app.goo.gl/HuXK2qSdAmySdZrb9"
             rel="noreferrer"
         >
             Southern California
-            <FontAwesomeIcon className="h-5 w-5 ml-1" icon={faMapLocationDot} />
+            <FontAwesomeIcon className="h-5 w-5 ml-1.5" icon={faMapLocationDot} />
+        </a>
+    );
+}
+
+function resumeLink() {
+    return (
+        <a
+            className="link font-medium text-red-500 hover:text-red-700 focus:text-red-700 active:text-red-700"
+            target="_blank"
+            href="/docs/bdhk_resume.pdf"
+            rel="noreferrer"
+        >
+            Resume
+            <FontAwesomeIcon className='h-5 w-5 ml-1.5' icon={faFilePdf} />
         </a>
     );
 }
