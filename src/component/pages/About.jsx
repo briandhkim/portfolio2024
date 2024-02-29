@@ -47,8 +47,8 @@ const About = ({ setCurrentPage }) => {
             sectionTitle="About"
             id="About"
             headerBg="bg-base-200"
-            // bodyBg="bg-gradient-to-b from-base-200 from-10% via-base-200 via-25% to-base-300 to-70%"
-            bodyBg="bg-base-300"
+            bodyBg="bg-gradient-to-b from-base-200 from-10% via-base-200 via-25% to-base-300 to-70%"
+            // bodyBg="bg-base-300"
             className="pb-0 sm:pb-4 md:pb-6"
             setMinHeightToScreen={false}
             ref={sectionRef}

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useOnScreen } from '../../hooks/useOnScreen';
+import { motion } from 'framer-motion';
 import StackedWrapperWithFade from '../common/StackedWrapperWithFade';
 import RailsIcon from '../icons/RailsIcon';
 import RubyIcon from '../icons/RubyIcon';
@@ -13,6 +14,13 @@ import NextIcon from '../icons/NextIcon';
 import MySqlIcon from '../icons/MySqlIcon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
+import {
+    faCodeBranch,
+    faDesktop,
+    faDiagramProject,
+    faScrewdriverWrench,
+    faSitemap,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Experience = ({ setCurrentPage }) => {
     const sectionRef = useRef(null);
@@ -54,8 +62,8 @@ const Experience = ({ setCurrentPage }) => {
             sectionTitle="Experience"
             id="Experience"
             headerBg="bg-base-300"
-            // bodyBg="bg-gradient-to-b from-base-300 from-10% via-base-300 via-45% to-base-100 to-70%"
-            bodyBg="bg-base-100"
+            bodyBg="bg-gradient-to-b from-base-300 from-10% via-base-300 via-45% to-base-100 to-70%"
+            // bodyBg="bg-base-100"
             ref={sectionRef}
         >
             <div className="bg-base-100 px-6 py-8 rounded-2xl">
@@ -70,22 +78,20 @@ const Experience = ({ setCurrentPage }) => {
                     <span className="">({overallTimeDifference})</span>
                 </h3>
                 <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-                    <li>
+                    <li className="">
                         <div className="timeline-middle">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
+                            <FontAwesomeIcon
                                 className="h-5 w-5 text-primary"
-                            >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                                    clipRule="evenodd"
-                                />
-                            </svg>
+                                icon={faCodeBranch}
+                            />
                         </div>
-                        <div className="timeline-start md:text-end mb-10">
+                        <motion.div
+                            className="timeline-start md:text-end mb-10"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ ease: 'easeInOut', duration: 1.2 }}
+                            viewport={{ once: true, amount: 0.35 }}
+                        >
                             <time className="font-mono italic">Feb. 2023</time>
                             <div className="text-lg font-black">
                                 Engineering Team
@@ -141,26 +147,24 @@ const Experience = ({ setCurrentPage }) => {
                                     quality-of-life solutions
                                 </li>
                             </ul>
-                        </div>
+                        </motion.div>
                         <hr />
                     </li>
-                    <li>
+                    <li className="">
                         <hr />
                         <div className="timeline-middle">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
+                            <FontAwesomeIcon
                                 className="h-5 w-5"
-                            >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                                    clipRule="evenodd"
-                                />
-                            </svg>
+                                icon={faSitemap}
+                            />
                         </div>
-                        <div className="timeline-end mb-10">
+                        <motion.div
+                            className="timeline-end mb-10"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ ease: 'easeInOut', duration: 1.2 }}
+                            viewport={{ once: true, amount: 0.75 }}
+                        >
                             <time className="font-mono italic">Jul. 2022</time>
                             <div className="text-lg font-black">
                                 Service Team
@@ -191,29 +195,30 @@ const Experience = ({ setCurrentPage }) => {
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </motion.div>
                         <hr />
                     </li>
-                    <li>
+                    <li className="">
                         <hr />
                         <div className="timeline-middle">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
+                            <FontAwesomeIcon
                                 className="h-5 w-5"
-                            >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                                    clipRule="evenodd"
-                                />
-                            </svg>
+                                icon={faScrewdriverWrench}
+                            />
                         </div>
-                        <div className="timeline-start md:text-end mb-10">
+                        <motion.div
+                            className="timeline-start md:text-end mb-10"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ ease: 'easeInOut', duration: 1.2 }}
+                            viewport={{ once: true, amount: 0.75 }}
+                        >
                             <time className="font-mono italic">Oct. 2020</time>
                             <div className="text-lg font-black">
-                                Production Defect Team
+                                Production Defect Team, <br />
+                                <span className="text-base">
+                                    Deployment Specialist
+                                </span>
                             </div>
                             <div>
                                 <FontAwesomeIcon
@@ -246,26 +251,24 @@ const Experience = ({ setCurrentPage }) => {
                                     Implementation, and Sales
                                 </li>
                             </ul>
-                        </div>
+                        </motion.div>
                         <hr />
                     </li>
-                    <li>
+                    <li className="">
                         <hr />
                         <div className="timeline-middle">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
+                            <FontAwesomeIcon
                                 className="h-5 w-5"
-                            >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                                    clipRule="evenodd"
-                                />
-                            </svg>
+                                icon={faDiagramProject}
+                            />
                         </div>
-                        <div className="timeline-end mb-10">
+                        <motion.div
+                            className="timeline-end mb-10"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ ease: 'easeInOut', duration: 1.2 }}
+                            viewport={{ once: true, amount: 0.75 }}
+                        >
                             <time className="font-mono italic">Feb. 2019</time>
                             <div className="text-lg font-black">
                                 Implementation Team
@@ -329,26 +332,24 @@ const Experience = ({ setCurrentPage }) => {
                                     developers on feature development
                                 </li>
                             </ul>
-                        </div>
+                        </motion.div>
                         <hr />
                     </li>
-                    <li>
+                    <li className="">
                         <hr />
                         <div className="timeline-middle">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                                className="h-5 w-5"
-                            >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                                    clipRule="evenodd"
-                                />
-                            </svg>
+                            <FontAwesomeIcon
+                                className="h-5 w-5 "
+                                icon={faDesktop}
+                            />
                         </div>
-                        <div className="timeline-start md:text-end mb-10 ">
+                        <motion.div
+                            className="timeline-start md:text-end mb-10 "
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ ease: 'easeInOut', duration: 1.2 }}
+                            viewport={{ once: true, amount: 0.75 }}
+                        >
                             <time className="font-mono italic">Jul. 2018</time>
                             <div className="text-lg font-black">UX Team</div>
                             <div>
@@ -369,7 +370,7 @@ const Experience = ({ setCurrentPage }) => {
                                     user experience
                                 </li>
                             </ul>
-                        </div>
+                        </motion.div>
                     </li>
                 </ul>
             </div>

@@ -54,13 +54,13 @@ const Skills = ({ setCurrentPage }) => {
             sectionTitle="Skills"
             id="Skills"
             headerBg="bg-base-100"
-            // bodyBg="bg-gradient-to-b from-base-100 from-10% via-base-100 via-45% to-base-300 to-70%"
-            bodyBg="bg-base-300"
+            bodyBg="bg-gradient-to-b from-base-100 from-10% via-base-100 via-45% to-base-300 to-70%"
+            // bodyBg="bg-base-300"
             setMinHeightToScreen={false}
             className="pb-0 sm:pb-4 md:pb-6"
             ref={sectionRef}
         >
-            <div className="bg-base-200 px-6 py-8 rounded-2xl ">
+            <div className="bg-base-300 px-6 py-8 rounded-2xl ">
                 <h2 className="text-lg font-medium text-gray-500">
                     Some of the languages, frameworks, and tools that I had
                     opportunities to work with
@@ -131,7 +131,7 @@ const Skills = ({ setCurrentPage }) => {
                                 <div
                                     className={classNames(
                                         skill.bgColor,
-                                        'bg-base-300 bg-opacity-50 flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white'
+                                        'bg-base-200 bg-opacity-50 flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white'
                                     )}
                                 >
                                     <div className="flex flex-1 h-5/6 w-auto justify-center">
