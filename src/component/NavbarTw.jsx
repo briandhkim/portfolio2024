@@ -60,7 +60,7 @@ export default function NavbarTw({ page, navHandler }) {
     return (
         <Disclosure
             as="nav"
-            className="bg-base-200 bg-opacity-80 shadow top-0 z-10 sticky w-full float-right clear-both "
+            className="bg-base-200 bg-opacity-85 shadow top-0 z-10 sticky w-full float-right clear-both "
         >
             {({ open }) => (
                 <>

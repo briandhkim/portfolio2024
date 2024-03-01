@@ -4,6 +4,7 @@ import { useOnScreen } from '../../hooks/useOnScreen';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import SectionHeading from '../common/SectionHeading';
 
 const Contact = ({ setCurrentPage }) => {
     const sectionRef = useRef(null);
@@ -28,9 +29,7 @@ const Contact = ({ setCurrentPage }) => {
                 viewport={{ once: true, amount: 0.35 }}
             >
                 <div className="mx-auto max-w-2xl sm:text-center">
-                    <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                        Contact
-                    </h1>
+                    <SectionHeading sectionTitle={'Contact'} />
                     <p className="mt-2 text-lg leading-8 text-gray-600">
                         Let's make things happen
                     </p>

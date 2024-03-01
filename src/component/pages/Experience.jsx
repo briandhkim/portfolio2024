@@ -24,7 +24,7 @@ import {
 
 const Experience = ({ setCurrentPage }) => {
     const sectionRef = useRef(null);
-    const isOnScreen = useOnScreen(sectionRef);
+    const isOnScreen = useOnScreen(sectionRef, 0.4); //need to set threshold because this is a longer section
 
     useEffect(() => {
         if (isOnScreen) setCurrentPage('Experience');

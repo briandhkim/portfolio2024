@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
+import SectionHeading from './SectionHeading';
 
 const StackedWrapperWithFade = forwardRef(
     function StackedWrapperWithFade(props, ref) {
@@ -28,9 +29,7 @@ const StackedWrapperWithFade = forwardRef(
                     <div className={`${headerBg} pb-32 pt-16`}>
                         <header className="py-10">
                             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl ">
-                                    {sectionTitle}
-                                </h1>
+                                <SectionHeading sectionTitle={sectionTitle} />
                             </div>
                         </header>
                     </div>

@@ -55,11 +55,11 @@ const About = ({ setCurrentPage }) => {
         >
             <div className="bg-base-100 rounded-2xl">
                 <div className="lg:grid lg:grid-cols-12">
-                    <aside className="relative block h-16 lg:order-last lg:col-span-3 lg:h-full xl:col-span-4">
+                    <aside className="relative block h-16 lg:order-last lg:col-span-3 lg:h-full xl:col-span-4 ">
                         <img
                             alt=""
                             src={background}
-                            className="absolute inset-0 h-full w-full object-cover"
+                            className="absolute inset-0 h-full w-full object-cover saturate-[1.25]"
                         />
                     </aside>
                     <div className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-9 lg:px-16 lg:py-12 xl:col-span-8">
