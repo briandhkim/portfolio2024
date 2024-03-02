@@ -61,7 +61,7 @@ const Skills = ({ setCurrentPage }) => {
             ref={sectionRef}
         >
             <div className="bg-base-300 px-6 py-8 rounded-2xl ">
-                <h2 className="text-lg font-medium text-gray-500">
+                <h2 className="text-lg font-medium text-gray-600 dark:text-gray-400">
                     Some of the languages, frameworks, and tools that I had
                     opportunities to work with
                 </h2>
@@ -87,7 +87,7 @@ const Skills = ({ setCurrentPage }) => {
                                         classNames(
                                             active ? '' : '',
                                             checked ? '' : ' ',
-                                            'cursor-pointer flex items-center justify-center rounded-md py-3 px-3 text-sm md:text-base font-extrabold uppercase bg-transparent relative'
+                                            'cursor-pointer flex items-center justify-center rounded-md py-3 px-3 text-sm md:text-base font-extrabold uppercase bg-transparent relative text-gray-700 dark:text-gray-300'
                                         )
                                     }
                                 >
@@ -138,12 +138,12 @@ const Skills = ({ setCurrentPage }) => {
                                         {skill.icon}
                                     </div>
                                 </div>
-                                <div className="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
+                                <div className="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-100 bg-gray-200 dark:border-gray-800 dark:bg-gray-700">
                                     <div className="flex-1 truncate px-4 py-2 text-sm">
-                                        <p className="font-medium text-gray-900">
+                                        <p className="font-medium text-gray-800 dark:text-gray-200">
                                             {skill.name}
                                         </p>
-                                        <p className="text-gray-500">
+                                        <p className="text-gray-600 dark:text-gray-400">
                                             {skill.category}
                                         </p>
                                     </div>

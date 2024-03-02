@@ -1,4 +1,7 @@
-import background from '../../assets/images/background.jpg';
+// import background from '../../assets/images/background.jpg';
+import backgroundLight from '../../assets/images/mtn_day1.jpg';
+import backgroundDark from '../../assets/images/mtn_night1.jpg';
+// import backgroundDark from '../../assets/images/cloud_6.jpg';
 import { useOnScreen } from '../../hooks/useOnScreen';
 import { useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +13,7 @@ import {
 import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
 import StackedWrapperWithFade from '../common/StackedWrapperWithFade';
 
-const About = ({ setCurrentPage }) => {
+const About = ({ setCurrentPage, themeData }) => {
     const aboutContent = {
         'Full name': nameDescription(),
         'Current position': 'Full Stack Software Engineer',
@@ -58,8 +61,12 @@ const About = ({ setCurrentPage }) => {
                     <aside className="relative block h-16 lg:order-last lg:col-span-3 lg:h-full xl:col-span-4 ">
                         <img
                             alt=""
-                            src={background}
-                            className="absolute inset-0 h-full w-full object-cover saturate-[1.25]"
+                            src={
+                                themeData.isDarkMode
+                                    ? backgroundDark
+                                    : backgroundLight
+                            }
+                            className={`absolute inset-0 h-full w-full object-cover saturate-[1.25]`}
                         />
                     </aside>
                     <div className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-9 lg:px-16 lg:py-12 xl:col-span-8">
@@ -170,7 +177,7 @@ function resumeLink() {
             rel="noreferrer"
         >
             Resume
-            <FontAwesomeIcon className='h-5 w-5 ml-1.5' icon={faFilePdf} />
+            <FontAwesomeIcon className="h-5 w-5 ml-1.5" icon={faFilePdf} />
         </a>
     );
 }

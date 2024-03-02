@@ -3,6 +3,7 @@ import DaisyUiIcon from '../icons/DaisyUiIcon';
 import ReactIcon from '../icons/ReactIcon';
 import TailwindIcon from '../icons/TailwindIcon';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
 
 const navigation = {
     main: [
@@ -34,6 +35,17 @@ const navigation = {
                 />
             ),
         },
+        {
+            name: 'Resume',
+            href: '/docs/bdhk_resume.pdf',
+            icon: props => (
+                <FontAwesomeIcon 
+                    {...props}
+                    className="h-6 w-6 text-red-500 hover:text-red-700"
+                    icon={faFilePdf}
+                />
+            )
+        }
     ],
 };
 
@@ -49,7 +61,7 @@ const Footer = ({ navHandler }) => {
                         <div key={item.name} className="pb-6">
                             <button
                                 onClick={() => navHandler(item.name)}
-                                className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                                className="text-sm leading-6 text-primary hover:text-accent font-semibold"
                             >
                                 {item.name}
                             </button>
@@ -63,14 +75,15 @@ const Footer = ({ navHandler }) => {
                             href={item.href}
                             target="_blank"
                             rel="noreferrer"
-                            className="text-gray-400 hover:text-gray-500"
+                            className="text-gray-400 hover:text-gray-500 tooltip"
+                            data-tip={item.name}
                         >
                             <span className="sr-only">{item.name}</span>
                             <item.icon className="h-6 w-6" aria-hidden="true" />
                         </a>
                     ))}
                 </div>
-                <div className="mt-10 text-center text-xs leading-5 text-gray-500">
+                <div className="mt-10 text-center text-xs leading-5 text-gray-600 dark:text-gray-400">
                     <div className="mb-1">
                         Made with &#8192;
                         <div

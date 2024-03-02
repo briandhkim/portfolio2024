@@ -30,7 +30,7 @@ const Contact = ({ setCurrentPage }) => {
             >
                 <div className="mx-auto max-w-2xl sm:text-center">
                     <SectionHeading sectionTitle={'Contact'} />
-                    <p className="mt-2 text-lg leading-8 text-gray-600">
+                    <p className="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-400">
                         Let's make things happen
                     </p>
                 </div>

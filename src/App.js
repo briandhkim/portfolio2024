@@ -12,6 +12,11 @@ function App() {
     const [unlocked, setUnlocked] = useState(false);
     const [showLanding, setShowLanding] = useState(true);
     const [currentPage, setCurrentPage] = useState('Landing');
+    const [themeData, setThemeData] = useState(
+        JSON.parse(localStorage.getItem('bdhk_theme')) || {
+            isDarkMode: false,
+            currentTheme: 'retro',
+    });
 
     useEffect(() => {
         if (unlocked) {
@@ -28,9 +33,25 @@ function App() {
         }
     }, [unlocked]);
 
+    useEffect(() => {
+        localStorage.setItem('bdhk_theme', JSON.stringify(themeData));
+    }, [themeData]);
+
+    useEffect(() => {
+        document
+            .getElementsByTagName('html')[0]
+            .setAttribute('data-theme', themeData.currentTheme);
+
+        const root = document.getElementById('root');
+        if (themeData.isDarkMode) {
+            root.classList.add('dark');
+        } else {
+            root.classList.remove('dark');
+        }
+    }, []);
+
     function navHandler(id) {
         document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        // setCurrentPage(id);
     }
 
     return (
@@ -40,8 +61,16 @@ function App() {
             )}
             {unlocked && (
                 <>
-                    <NavbarTw page={currentPage} navHandler={navHandler} />
-                    <About setCurrentPage={setCurrentPage} />
+                    <NavbarTw
+                        page={currentPage}
+                        navHandler={navHandler}
+                        themeData={themeData}
+                        setThemeData={setThemeData}
+                    />
+                    <About
+                        setCurrentPage={setCurrentPage}
+                        themeData={themeData}
+                    />
                     <Experience setCurrentPage={setCurrentPage} />
                     <Skills setCurrentPage={setCurrentPage} />
                     <Contact setCurrentPage={setCurrentPage} />

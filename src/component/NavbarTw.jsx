@@ -1,40 +1,46 @@
-import { Fragment, useEffect, useRef, useState } from 'react';
-import { Disclosure, Menu, RadioGroup, Transition } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useEffect, useRef, useState } from 'react';
+import { Disclosure } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
 import { faPalette } from '@fortawesome/free-solid-svg-icons';
+import { themes, darkThemes } from '../util/constants';
 
-export default function NavbarTw({ page, navHandler }) {
+export default function NavbarTw({
+    page,
+    navHandler,
+    themeData,
+    setThemeData,
+}) {
     const navigation = [
         { name: 'About', href: '#', current: true },
         { name: 'Experience', href: '#', current: false },
         { name: 'Skills', href: '#', current: false },
         { name: 'Contact', href: '#', current: false },
     ];
-    const themes = [
-        'light',
-        'dark',
-        'retro',
-        'cyberpunk',
-        'lofi',
-        'wireframe',
-        'business',
-        'night',
-        'dim',
-        'nord',
-        'sunset',
-    ];
-    const darkThemes = ['dark', 'business', 'night', 'dim', 'sunset'];
 
     const [currentPage, setCurrentPage] = useState('About');
-    const [isDarkMode, setIsDarkMode] = useState(false);
-    const [currentTheme, setCurrentTheme] = useState('retro');
 
     const themeDropdown = useRef(null);
 
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ');
+    }
+
+    function themeChange(theme) {
+        const root = document.getElementById('root');
+        if (darkThemes.includes(theme)) {
+            root.classList.add('dark');
+            setThemeData({
+                isDarkMode: true,
+                currentTheme: theme,
+            });
+        } else {
+            root.classList.remove('dark');
+            setThemeData({
+                isDarkMode: false,
+                currentTheme: theme,
+            });
+        }
     }
 
     useEffect(() => {
@@ -47,15 +53,6 @@ export default function NavbarTw({ page, navHandler }) {
     useEffect(() => {
         setCurrentPage(page);
     }, [page]);
-
-    useEffect(() => {
-        const root = document.getElementById('root');
-        if (darkThemes.includes(currentTheme)) {
-            root.classList.add('dark');
-        } else {
-            root.classList.remove('dark');
-        }
-    }, [currentTheme]);
 
     return (
         <Disclosure
@@ -104,7 +101,7 @@ export default function NavbarTw({ page, navHandler }) {
                                                 item.name === currentPage
                                                     ? 'border-accent text-accent'
                                                     : 'border-transparent hover:border-accent hover:text-accent text-primary'
-                                            )} ${isDarkMode && item.name !== currentPage ? '' : ''} inline-flex items-center border-b-4 px-1 pt-1 text-base font-bold`}
+                                            )} ${themeData.isDarkMode && item.name !== currentPage ? '' : ''} inline-flex items-center border-b-4 px-1 pt-1 text-base font-bold`}
                                             onClick={() =>
                                                 navHandler(item.name)
                                             }
@@ -151,8 +148,12 @@ export default function NavbarTw({ page, navHandler }) {
                                                     className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
                                                     aria-label={theme}
                                                     value={theme}
+                                                    checked={
+                                                        themeData.currentTheme ===
+                                                        theme
+                                                    }
                                                     onChange={e =>
-                                                        setCurrentTheme(
+                                                        themeChange(
                                                             e.target.value
                                                         )
                                                     }

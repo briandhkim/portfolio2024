@@ -146,3 +146,32 @@ export const skillList = [
         category: 'Development',
     },
 ];
+
+export const themes = [
+    'aqua',
+    'business',
+    'corporate',
+    'cyberpunk',
+    'dark',
+    'dim',
+    'dracula',
+    'forest',
+    'light',
+    'lofi',
+    'night',
+    'nord',
+    'retro',
+    'sunset',
+    'wireframe',
+];
+
+export const darkThemes = [
+    'aqua',
+    'business',
+    'dark',
+    'dim',
+    'dracula',
+    'forest',
+    'night',
+    'sunset',
+];
