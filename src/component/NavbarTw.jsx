@@ -27,6 +27,8 @@ export default function NavbarTw({
     }
 
     function themeChange(theme) {
+        if (theme === 'random') theme = getRandomTheme();
+
         const root = document.getElementById('root');
         if (darkThemes.includes(theme)) {
             root.classList.add('dark');
@@ -41,6 +43,14 @@ export default function NavbarTw({
                 currentTheme: theme,
             });
         }
+    }
+
+    function getRandomTheme() {
+        //length -1 to hopefully exclude the random option
+        const idx = Math.floor(Math.random() * (themes.length - 1));
+        const theme = themes[idx];
+
+        return theme === themeData.currentTheme ? getRandomTheme() : theme;
     }
 
     useEffect(() => {

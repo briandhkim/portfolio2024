@@ -147,6 +147,7 @@ export const skillList = [
     },
 ];
 
+// make sure to update tailwind config
 export const themes = [
     'aqua',
     'business',
@@ -156,13 +157,17 @@ export const themes = [
     'dim',
     'dracula',
     'forest',
+    'garden',
     'light',
     'lofi',
     'night',
     'nord',
+    'pastel',
     'retro',
     'sunset',
+    'winter',
     'wireframe',
+    'random',
 ];
 
 export const darkThemes = [
