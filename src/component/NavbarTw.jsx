@@ -67,7 +67,7 @@ export default function NavbarTw({
     return (
         <Disclosure
             as="nav"
-            className="bg-base-200 bg-opacity-85 shadow top-0 z-10 sticky w-full float-right clear-both "
+            className="bg-base-200 bg-opacity-95 sm:bg-opacity-85 shadow top-0 z-10 sticky w-full float-right clear-both "
         >
             {({ open }) => (
                 <>
@@ -75,7 +75,7 @@ export default function NavbarTw({
                         <div className="relative flex h-16 justify-between">
                             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                 {/* Mobile menu button */}
-                                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-accent hover:bg-primary hover:text-primary-content focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
                                     <span className="sr-only">
                                         Open main menu
                                     </span>
@@ -102,7 +102,6 @@ export default function NavbarTw({
                                     </div>
                                 </div>
                                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                                    {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                                     {navigation.map(item => (
                                         <button
                                             key={item.name}
@@ -122,16 +121,6 @@ export default function NavbarTw({
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                {/* <label className="cursor-pointer grid place-items-center">
-                                    <input
-                                        type="checkbox"
-                                        value="business"
-                                        className="toggle theme-controller row-start-1 col-start-1 col-span-2 bg-amber-300 border-blue-300 [--tglbg:theme(colors.blue.400)] checked:bg-blue-300 checked:border-blue-800 checked:[--tglbg:theme(colors.blue.900)]"
-                                        onChange={e =>
-                                            setIsDarkMode(e.target.checked)
-                                        }
-                                    />
-                                </label> */}
                                 <details
                                     className="dropdown"
                                     ref={themeDropdown}
@@ -139,7 +128,7 @@ export default function NavbarTw({
                                     <summary
                                         tabIndex={0}
                                         role="button"
-                                        className="btn m-1"
+                                        className="btn m-1 text-primary hover:text-primary-content hover:bg-gradient-to-b from-primary via-secondary to-accent"
                                     >
                                         <FontAwesomeIcon
                                             icon={faPalette}
@@ -182,17 +171,17 @@ export default function NavbarTw({
                             {navigation.map(item => (
                                 <Disclosure.Button
                                     key={item.name}
-                                    as="a"
-                                    href={item.href}
+                                    as="button"
                                     className={classNames(
-                                        item.current
-                                            ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
-                                            : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700',
-                                        'block border-l-4 py-2 pl-3 pr-4 text-base font-medium'
+                                        item.name === currentPage
+                                            ? 'bg-base-100 dark:bg-gray-700 border-accent text-accent'
+                                            : 'border-transparent hover:border-accent text-primary hover:bg-base-100 hover:dark:bg-gray-700 hover:border-accent hover:text-accent',
+                                        'block border-l-4 py-2 pl-3 pr-4 text-base font-medium w-full text-left'
                                     )}
                                     aria-current={
                                         item.current ? 'page' : undefined
                                     }
+                                    onClick={() => navHandler(item.name)}
                                 >
                                     {item.name}
                                 </Disclosure.Button>

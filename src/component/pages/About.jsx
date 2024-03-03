@@ -101,15 +101,12 @@ function nameDescription() {
 function aboutDescription() {
     return (
         <p>
-            Experienced in over 5 years of web development work with exposure to
-            both frontend and backend stack. Skilled in working with diverse
-            groups of people including not only developers and QAs but also
-            business analysts, implementation specialists, client success
-            managers, account executives, and more. Seasoned in quickly adapting
-            to new technologies with expertise in providing rapid, effective
-            solutions. Always seeking to learn new skills and to improve
-            development techniques to more effectively support team members and
-            perform duties of work.
+            Hello there <br />I am currently working as a full-stack software
+            engineer for the Engineering Department at BeSmartee in Southern
+            California. As a member of the engineering team, I am supporting the
+            company's latest endeavor of building out a mortgage POS using{' '}
+            <b>React</b>, <b>Next.js</b>, <b>Laravel</b>, and{' '}
+            <b>microservice architecture</b>.
         </p>
     );
 }
@@ -163,7 +160,10 @@ function locationLink() {
             rel="noreferrer"
         >
             Southern California
-            <FontAwesomeIcon className="h-5 w-5 ml-1.5" icon={faMapLocationDot} />
+            <FontAwesomeIcon
+                className="h-5 w-5 ml-1.5"
+                icon={faMapLocationDot}
+            />
         </a>
     );
 }
