@@ -49,7 +49,7 @@ const Contact = ({ setCurrentPage }) => {
                             <AnimatePresence initial={false} mode="wait">
                                 {!showEmail && (
                                     <motion.p
-                                        className="mt-2 leading-7 text-transparent bg-gradient-to-r from-primary to-accent cursor-pointer tooltip"
+                                        className="mt-2 leading-7 text-transparent bg-gradient-to-r from-primary to-accent cursor-pointer tooltip dark:tooltip-primary"
                                         data-tip="Show email"
                                         onClick={() => setShowEmail(true)}
                                         exit={{ rotateX: 90, scale: 0.85 }}
