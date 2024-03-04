@@ -75,7 +75,7 @@ const Skills = ({ setCurrentPage }) => {
                         Skill filter
                     </RadioGroup.Label>
                     <div className="flex">
-                        <div className="flex items-center font-normal md:font-medium mr-1 ">
+                        <div className="flex items-center font-normal text-xs sm:text-sm md:text-base md:font-medium mr-1 ">
                             Filter:
                         </div>
                         {skillFilters.map((option, idx) => (
@@ -87,7 +87,7 @@ const Skills = ({ setCurrentPage }) => {
                                         classNames(
                                             active ? '' : '',
                                             checked ? '' : ' ',
-                                            'cursor-pointer flex items-center justify-center rounded-md py-3 px-3 text-sm md:text-base font-extrabold uppercase bg-transparent relative text-gray-700 dark:text-gray-300'
+                                            'cursor-pointer flex items-center justify-center rounded-md py-3 px-3 text-xs sm:text-sm md:text-base font-extrabold uppercase bg-transparent relative text-gray-700 dark:text-gray-300'
                                         )
                                     }
                                 >

@@ -24,7 +24,7 @@ import {
 
 const Experience = ({ setCurrentPage }) => {
     const sectionRef = useRef(null);
-    const isOnScreen = useOnScreen(sectionRef, 0.4); //need to set threshold because this is a longer section
+    const isOnScreen = useOnScreen(sectionRef, 0.3); //need to set threshold because this is a longer section
 
     useEffect(() => {
         if (isOnScreen) setCurrentPage('Experience');
@@ -65,6 +65,7 @@ const Experience = ({ setCurrentPage }) => {
             bodyBg="bg-gradient-to-b from-base-300 from-10% via-base-300 via-45% to-base-100 to-70%"
             // bodyBg="bg-base-100"
             ref={sectionRef}
+            viewportAmount={0.2}
         >
             <div className="bg-base-100 px-6 py-8 rounded-2xl">
                 <h2 className="text-lg sm:text-xl font-bold tracking-tight md:ml-5 text-zinc-600 dark:text-zinc-400">

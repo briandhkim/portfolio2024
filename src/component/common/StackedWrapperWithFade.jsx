@@ -12,6 +12,7 @@ const StackedWrapperWithFade = forwardRef(
             headerBg = 'bg-base-200',
             bodyBg = 'bg-base-100',
             setMinHeightToScreen = true,
+            viewportAmount= 0.35,
         } = props;
 
         return (
@@ -24,7 +25,7 @@ const StackedWrapperWithFade = forwardRef(
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ ease: 'easeInOut', duration: 1.2 }}
-                    viewport={{ once: true, amount: 0.35 }}
+                    viewport={{ once: true, amount: viewportAmount }}
                 >
                     <div className={`${headerBg} pb-32 pt-16`}>
                         <header className="py-10">
