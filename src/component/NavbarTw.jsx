@@ -128,11 +128,11 @@ export default function NavbarTw({
                                     <summary
                                         tabIndex={0}
                                         role="button"
-                                        className="btn m-1 text-primary hover:text-primary-content hover:bg-gradient-to-b from-primary via-secondary to-accent"
+                                        className=" btn px-1 m-1 text-primary hover:text-primary-content hover:bg-gradient-to-b from-primary via-secondary to-accent text-xl"
                                     >
                                         <FontAwesomeIcon
                                             icon={faPalette}
-                                            className="fa-2xl"
+                                            className="fa-2xl "
                                         />
                                     </summary>
                                     <ul
