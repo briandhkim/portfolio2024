@@ -7,6 +7,7 @@ import NavbarTw from './component/NavbarTw';
 import Skills from './component/pages/Skills';
 import Contact from './component/pages/Contact';
 import Footer from './component/pages/Footer';
+import { scroller } from 'react-scroll';
 
 function App() {
     const [unlocked, setUnlocked] = useState(false);
@@ -51,7 +52,11 @@ function App() {
     }, []);
 
     function navHandler(id) {
-        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        // document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        scroller.scrollTo(id, {
+            duration: 500,
+            smooth: true,
+        });
     }
 
     return (

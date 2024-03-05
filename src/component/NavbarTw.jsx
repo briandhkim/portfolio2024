@@ -4,6 +4,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPalette } from '@fortawesome/free-solid-svg-icons';
 import { themes, darkThemes } from '../util/constants';
+import { Link } from 'react-scroll';
 
 export default function NavbarTw({
     page,
@@ -17,8 +18,6 @@ export default function NavbarTw({
         { name: 'Skills', href: '#', current: false },
         { name: 'Contact', href: '#', current: false },
     ];
-
-    const [currentPage, setCurrentPage] = useState('About');
 
     const themeDropdown = useRef(null);
 
@@ -60,10 +59,6 @@ export default function NavbarTw({
         });
     }, []);
 
-    useEffect(() => {
-        setCurrentPage(page);
-    }, [page]);
-
     return (
         <Disclosure
             as="nav"
@@ -103,20 +98,20 @@ export default function NavbarTw({
                                 </div>
                                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                                     {navigation.map(item => (
-                                        <button
+                                        <Link
                                             key={item.name}
-                                            // href={item.href}
-                                            className={`${classNames(
-                                                item.name === currentPage
-                                                    ? 'border-accent text-accent'
-                                                    : 'border-transparent hover:border-accent hover:text-accent text-primary'
-                                            )} ${themeData.isDarkMode && item.name !== currentPage ? '' : ''} inline-flex items-center border-b-4 px-1 pt-1 text-base font-bold`}
-                                            onClick={() =>
-                                                navHandler(item.name)
-                                            }
+                                            activeClass="active in-view group"
+                                            to={item.name}
+                                            spy={true}
+                                            smooth={true}
+                                            duration={500}
+                                            className="inline-flex items-center px-1 pt-1 text-base font-bold hover:border-accent hover:text-accent text-primary cursor-pointer"
+                                            // onClick={() =>navHandler(item.name)}
                                         >
-                                            {item.name}
-                                        </button>
+                                            <span className="h-full content-center grid border-b-4 border-transparent hover:border-accent group-[.in-view]:border-accent group-[.in-view]:text-accent">
+                                                {item.name}
+                                            </span>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>
@@ -171,19 +166,27 @@ export default function NavbarTw({
                             {navigation.map(item => (
                                 <Disclosure.Button
                                     key={item.name}
-                                    as="button"
-                                    className={classNames(
-                                        item.name === currentPage
-                                            ? 'bg-base-100 dark:bg-gray-700 border-accent text-accent'
-                                            : 'border-transparent hover:border-accent text-primary hover:bg-base-100 hover:dark:bg-gray-700 hover:border-accent hover:text-accent',
-                                        'block border-l-4 py-2 pl-3 pr-4 text-base font-medium w-full text-left'
-                                    )}
+                                    as={Link}
+                                    // className={classNames(
+                                    //     item.name === currentPage
+                                    //         ? 'bg-base-100 dark:bg-gray-700 border-accent text-accent'
+                                    //         : 'border-transparent hover:border-accent text-primary hover:bg-base-100 hover:dark:bg-gray-700 hover:border-accent hover:text-accent',
+                                    //     'block border-l-4 py-2 pl-3 pr-4 text-base font-medium w-full text-left'
+                                    // )}
                                     aria-current={
                                         item.current ? 'page' : undefined
                                     }
-                                    onClick={() => navHandler(item.name)}
+                                    activeClass="active in-view group"
+                                    to={item.name}
+                                    spy={true}
+                                    smooth={true}
+                                    duration={500}
+                                    offset={-140}
+                                    className="text-base font-medium w-full text-left "
                                 >
-                                    {item.name}
+                                    <span className="block border-l-4 py-2 pl-3 pr-4 mt-1 text-base font-medium w-full text-left border-transparent hover:border-accent text-primary hover:bg-base-100 hover:dark:bg-gray-700 hover:border-accent hover:text-accent group-[.in-view]:bg-base-100 group-[.in-view]:dark:bg-gray-700 group-[.in-view]:border-accent group-[.in-view]:text-accent">
+                                        {item.name}
+                                    </span>
                                 </Disclosure.Button>
                             ))}
                         </div>
