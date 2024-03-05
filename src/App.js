@@ -31,7 +31,7 @@ function App() {
             Events.scrollEvent.register('end', () => {
                 setTimeout(() => {
                     setShowLanding(false);
-                }, 700);
+                }, 1000);
 
                 Events.scrollEvent.remove('end');
             });
