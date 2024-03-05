@@ -6,12 +6,7 @@ import { faPalette } from '@fortawesome/free-solid-svg-icons';
 import { themes, darkThemes } from '../util/constants';
 import { Link } from 'react-scroll';
 
-export default function NavbarTw({
-    page,
-    navHandler,
-    themeData,
-    setThemeData,
-}) {
+export default function NavbarTw({ themeData, setThemeData }) {
     const navigation = [
         { name: 'About', href: '#', current: true },
         { name: 'Experience', href: '#', current: false },
@@ -20,10 +15,6 @@ export default function NavbarTw({
     ];
 
     const themeDropdown = useRef(null);
-
-    function classNames(...classes) {
-        return classes.filter(Boolean).join(' ');
-    }
 
     function themeChange(theme) {
         if (theme === 'random') theme = getRandomTheme();
@@ -103,7 +94,7 @@ export default function NavbarTw({
                                             activeClass="active in-view group"
                                             to={item.name}
                                             spy={true}
-                                            smooth={true}
+                                            smooth="easeInOutQuart"
                                             duration={500}
                                             className="inline-flex items-center px-1 pt-1 text-base font-bold hover:border-accent hover:text-accent text-primary cursor-pointer"
                                             // onClick={() =>navHandler(item.name)}
@@ -167,12 +158,6 @@ export default function NavbarTw({
                                 <Disclosure.Button
                                     key={item.name}
                                     as={Link}
-                                    // className={classNames(
-                                    //     item.name === currentPage
-                                    //         ? 'bg-base-100 dark:bg-gray-700 border-accent text-accent'
-                                    //         : 'border-transparent hover:border-accent text-primary hover:bg-base-100 hover:dark:bg-gray-700 hover:border-accent hover:text-accent',
-                                    //     'block border-l-4 py-2 pl-3 pr-4 text-base font-medium w-full text-left'
-                                    // )}
                                     aria-current={
                                         item.current ? 'page' : undefined
                                     }

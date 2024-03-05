@@ -58,7 +58,7 @@ const Footer = ({ navHandler }) => {
                     aria-label="Footer"
                 >
                     {navigation.main.map(item => (
-                        <div key={item.name} className="pb-6">
+                        <div key={item.name} className="pb-6 text-center">
                             <button
                                 onClick={() => navHandler(item.name)}
                                 className="text-sm leading-6 text-primary hover:text-accent font-semibold"

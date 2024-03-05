@@ -7,7 +7,7 @@ import NavbarTw from './component/NavbarTw';
 import Skills from './component/pages/Skills';
 import Contact from './component/pages/Contact';
 import Footer from './component/pages/Footer';
-import { scroller } from 'react-scroll';
+import { Events, scroller } from 'react-scroll';
 
 function App() {
     const [unlocked, setUnlocked] = useState(false);
@@ -21,12 +21,20 @@ function App() {
 
     useEffect(() => {
         if (unlocked) {
-            const aboutSection = document.getElementById('About');
-            aboutSection.scrollIntoView({ behavior: 'smooth' });
+            scroller.scrollTo('About', {
+                duration: 500,
+                smooth: 'easeInOutQuart',
+                isDynamic: true,
+                // delay: 400,
+            });
 
-            setTimeout(() => {
-                setShowLanding(false);
-            }, 800);
+            Events.scrollEvent.register('end', () => {
+                setTimeout(() => {
+                    setShowLanding(false);
+                }, 700);
+
+                Events.scrollEvent.remove('end');
+            });
         }
 
         if (!unlocked) {
