@@ -8,6 +8,7 @@ import Skills from './component/pages/Skills';
 import Contact from './component/pages/Contact';
 import Footer from './component/pages/Footer';
 import { Events, scroller } from 'react-scroll';
+import Construction from './component/pages/Construction';
 
 function App() {
     const [unlocked, setUnlocked] = useState(false);
@@ -69,7 +70,8 @@ function App() {
 
     return (
         <div className="App">
-            {showLanding && (
+            <Construction />
+            {/* {showLanding && (
                 <Landing unlocked={unlocked} setUnlocked={setUnlocked} />
             )}
             {unlocked && (
@@ -89,7 +91,7 @@ function App() {
                     <Contact setCurrentPage={setCurrentPage} />
                     <Footer navHandler={navHandler} />
                 </>
-            )}
+            )} */}
         </div>
     );
 }
